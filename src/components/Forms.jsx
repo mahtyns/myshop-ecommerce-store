@@ -26,12 +26,14 @@ const InfoItems = styled.div`
 flex: 1;`;
 
 const InfoMap = styled.div`
-flex: 1`;
+flex: 1;
+text-align: center`;
 
 const Form = styled.form`
 padding: 30px 50px;
 display: flex;
-flex-direction: column`;
+flex-direction: column;
+flex: 1`;
 
 const InfoItem = styled.div`
 font-size: 18px;
@@ -45,7 +47,17 @@ background-color: black;
 color: white;
 border: none;
 padding: 20px 80px;
+float: right;
+margin: 10px 30px;
+cursor: pointer;
 `;
+
+const FormContainer = styled.div`
+display: flex;
+flex-direction: row;
+width: 100%;
+align-items: center;
+justify-content: space-between`;
 
 
 const Forms = () => {
@@ -65,11 +77,10 @@ const Forms = () => {
             <InfoItem>Contact us: <a href='mailto:mymail@myshop.com'>mymail@myshop.com</a></InfoItem>
 
                 </InfoItems>
-                <InfoMap>
-
-                </InfoMap>
+                
             </InfoList>
             <About>Contact</About>
+            <FormContainer>
           
             <Form>
                
@@ -82,6 +93,10 @@ const Forms = () => {
                 <label>Your phone (optional)</label>
                 <FormInput placeholder='123456789' type="number"/>
             </Form>
+            <InfoMap>
+                    Map
+                </InfoMap>
+            </FormContainer>
             <div>
             <Button>Send message</Button>
             </div>
