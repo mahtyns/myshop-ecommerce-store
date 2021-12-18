@@ -5,7 +5,7 @@ import Cart from "./pages/Cart";
 import Form from "./pages/Form";
 
 const App = () => {
-  return <Form />;
+  return <Home />;
 };
 
 export default App;

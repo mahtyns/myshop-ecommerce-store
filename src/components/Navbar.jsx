@@ -4,6 +4,9 @@ import { Search } from '@material-ui/icons';
 import { ShoppingCartSharp } from '@material-ui/icons';
 import { PersonSharp } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
+
 
 
 const Container = styled.div`
@@ -77,9 +80,11 @@ const Navbar = () => {
             <Wrapper>
           <Navigation>
               <NavList>
+                  <LiItem><Link to="/Home">Home</Link></LiItem>
+
                   <LiItem>About</LiItem>
                   <LiItem>Products</LiItem>
-                  <LiItem>Contact</LiItem>
+                  <LiItem >Contact</LiItem>
 
                   
               </NavList>
@@ -92,7 +97,9 @@ const Navbar = () => {
               </SearchDiv>
               <PersonSharp/>
               <Badge badgeContent={1} color="secondary" max={10}>
+                  <Link to="/Cart">
               <ShoppingCartSharp/>
+              </Link>
               </Badge>
               </CartOptions>
           </Wrapper>
