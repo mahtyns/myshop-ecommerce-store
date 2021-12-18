@@ -10,6 +10,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { Routes } from "react-router";
 import { Route } from "react-router";
+import ProductsShop from "./pages/ProductsShop";
 
 const App = () => {
   return (
@@ -20,6 +21,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Form />} />
+          <Route path="/products" element={<ProductsShop />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </>

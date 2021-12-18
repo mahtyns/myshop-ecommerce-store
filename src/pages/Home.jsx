@@ -9,7 +9,6 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <>
-    
       <Slider />
       <Products />
       <Footer/>

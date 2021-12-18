@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Home from '../pages/Home';
 import Form from '../pages/Form';
+import ProductsShop from '../pages/ProductsShop';
 import { Search } from '@material-ui/icons';
 import { ShoppingCartSharp } from '@material-ui/icons';
 import { PersonSharp } from '@material-ui/icons';
@@ -86,7 +87,7 @@ const Navbar = () => {
             <Wrapper>
           <Navigation>
               <NavList>
-                  <LiItem><Link to="/">Home</Link></LiItem>
+         
 
                   <LiItem><Link to="/about">About</Link></LiItem>
                   <LiItem><Link to="/products">Products</Link></LiItem>
@@ -95,7 +96,7 @@ const Navbar = () => {
                   
               </NavList>
               </Navigation>
-           <Logo>MyShop</Logo>
+           <Logo><Link to="/">MyShop</Link></Logo>
           <CartOptions>
               <SearchDiv>
                <Input/>
