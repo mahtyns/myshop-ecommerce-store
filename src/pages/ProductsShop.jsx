@@ -2,7 +2,8 @@ import React from 'react'
 import Products from "../components/Products";
 import styled from 'styled-components';
 
-const Container = styled.div``;
+const Container = styled.div`
+width: 100%`;
 
 
 

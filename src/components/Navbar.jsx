@@ -77,7 +77,8 @@ cursor: pointer;
 
 &:hover {
     color: white;
-}`;
+};
+&:visited { text-decoration: none; }`;
 
 
 
