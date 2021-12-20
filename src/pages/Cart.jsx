@@ -33,8 +33,7 @@ margin: 10px 20px`;
 const Cart = () => {
     return (
         <>
-        <Navbar/>
-        <Alert/>
+     
         <Wrapper>
             <Title>Your Cart</Title>
             <CartContainer>

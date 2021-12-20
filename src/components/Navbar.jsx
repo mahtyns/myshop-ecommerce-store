@@ -1,9 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import Home from '../pages/Home';
+import Form from '../pages/Form';
+import ProductsShop from '../pages/ProductsShop';
 import { Search } from '@material-ui/icons';
 import { ShoppingCartSharp } from '@material-ui/icons';
 import { PersonSharp } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
+import {
+
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 
 const Container = styled.div`
@@ -67,7 +77,8 @@ cursor: pointer;
 
 &:hover {
     color: white;
-}`;
+};
+&:visited { text-decoration: none; }`;
 
 
 
@@ -77,14 +88,16 @@ const Navbar = () => {
             <Wrapper>
           <Navigation>
               <NavList>
-                  <LiItem>About</LiItem>
-                  <LiItem>Products</LiItem>
-                  <LiItem>Contact</LiItem>
+         
+
+                  <LiItem><Link to="/about">About</Link></LiItem>
+                  <LiItem><Link to="/products">Products</Link></LiItem>
+                  <LiItem ><Link to="/contact">Contact</Link></LiItem>
 
                   
               </NavList>
               </Navigation>
-           <Logo>MyShop</Logo>
+           <Logo><Link to="/">MyShop</Link></Logo>
           <CartOptions>
               <SearchDiv>
                <Input/>
@@ -92,11 +105,16 @@ const Navbar = () => {
               </SearchDiv>
               <PersonSharp/>
               <Badge badgeContent={1} color="secondary" max={10}>
+                  <Link to="/cart">
               <ShoppingCartSharp/>
+              </Link>
               </Badge>
               </CartOptions>
           </Wrapper>
+      
         </Container>
+       
+ 
     )
 }
 

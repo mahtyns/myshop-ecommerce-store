@@ -13,8 +13,7 @@ height: auto;`;
 const Form = () => {
     return (
         <>
-        <Navbar/>
-        <Alert/>
+     
         <Wrapper>
             <Forms/>
         </Wrapper>
