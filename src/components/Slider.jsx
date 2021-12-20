@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 import { ArrowBackIos } from '@material-ui/icons';
 import { ArrowForwardIos } from '@material-ui/icons';
+import { banners } from '../data';
+let active = 0;
+const time = 5000;
 
 const Container = styled.div`
 height: 100vh;
@@ -10,7 +13,6 @@ background-color: #f7ede2;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 0px 40px;
 position: relative`;
 
 const Arrow = styled.div`
@@ -31,42 +33,62 @@ cursor:pointer;
 opacity: 0.7`;
 
 const Wrapper = styled.div`
-height: inherit`;
+height: inherit;
+`;
 
 const Slide = styled.div`
 width: 100vw;
-height: inherit;
-object-fit: cover`;
+height: 100vh;
+top: 10px`;
 
 
 const SlideImg = styled.img`
 width: 100%;
 max-height:100%;
-object-fit: cover`;
+object-fit: cover;
+`;
 
 
 const InfoContainer = styled.div`
-width: 100%;
-top: 25px;
-right: 10px;`
+`;
 
 
 const Slider = () => {
+
+const changeSlide = () => {
+    active++;
+    if (active = banners.length) {
+        active = 0;
+    }
+}
+
+let sliderInterval = setInterval(changeSlide, time)
+
+
+    // Change the banner with arrows
+    // const handleClick= function(direction) {
+    //     console.log(direction);
+    // }
+
     return (
         <Container>
-            <Arrow direction="left">
+            <Arrow direction="left" 
+            // onClick={()=>{handleClick("left")}}
+            >
                 <ArrowBackIos/>
             </Arrow>
             <Wrapper>
-                     <SlideImg src="https://images.unsplash.com/photo-1505944270255-72b8c68c6a70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"/> 
+                  <SlideImg src={banners[active].img}/>     
                 <Slide>                   
-                                 
+                                
                     <InfoContainer>
-                     
+                    
                     </InfoContainer>
                 </Slide>
             </Wrapper>
-            <Arrow direction="right">
+            <Arrow direction="right" 
+            // onClick={()=>{handleClick("right")}}
+            >
                 <ArrowForwardIos/>
             </Arrow>
           
