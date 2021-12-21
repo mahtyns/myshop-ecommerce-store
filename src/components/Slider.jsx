@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import react, { Component } from 'react';
+
 
 import { ArrowBackIos } from '@material-ui/icons';
 import { ArrowForwardIos } from '@material-ui/icons';
 import { banners } from '../data';
-let active = 0;
-const time = 5000;
+
 
 const Container = styled.div`
 height: 100vh;
@@ -53,19 +54,12 @@ const InfoContainer = styled.div`
 `;
 
 
+// const Slider = () => {
+
 const Slider = () => {
 
-const changeSlide = () => {
-    active++;
-    if (active = banners.length) {
-        active = 0;
-    }
-}
 
-let sliderInterval = setInterval(changeSlide, time)
-
-
-    // Change the banner with arrows
+   // Change the banner with arrows
     // const handleClick= function(direction) {
     //     console.log(direction);
     // }
@@ -78,7 +72,7 @@ let sliderInterval = setInterval(changeSlide, time)
                 <ArrowBackIos/>
             </Arrow>
             <Wrapper>
-                  <SlideImg src={banners[active].img}/>     
+                  <SlideImg src={banners[this.state.active].img}/>     
                 <Slide>                   
                                 
                     <InfoContainer>
@@ -95,5 +89,7 @@ let sliderInterval = setInterval(changeSlide, time)
         </Container>
     )
 }
+
+
 
 export default Slider
