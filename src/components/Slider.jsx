@@ -1,10 +1,12 @@
 import styled from 'styled-components'
-import react, { Component } from 'react';
-
+import react, { Component }  from 'react';
+import  { useState } from 'react';
 
 import { ArrowBackIos } from '@material-ui/icons';
 import { ArrowForwardIos } from '@material-ui/icons';
 import { banners } from '../data';
+
+
 
 
 const Container = styled.div`
@@ -54,9 +56,21 @@ const InfoContainer = styled.div`
 `;
 
 
+
 // const Slider = () => {
 
 const Slider = () => {
+
+const [state, setstate] = useState(0)
+
+ const handleClickBack = () => {
+     setstate(state - 1); 
+ }
+
+ const handleClicForth = () => {
+     setstate(state + 1); 
+ }
+
 
 
    // Change the banner with arrows
@@ -66,13 +80,17 @@ const Slider = () => {
 
     return (
         <Container>
-            <Arrow direction="left" 
-            // onClick={()=>{handleClick("left")}}
-            >
+            <Arrow 
+            direction="left" 
+            onClick={()=> {
+                if (state === 0) {
+                    setstate(banners.length);
+                }
+                setstate(state - 1)}}>
                 <ArrowBackIos/>
             </Arrow>
             <Wrapper>
-                  <SlideImg src={banners[this.state.active].img}/>     
+                  <SlideImg src={banners[state].img}/>     
                 <Slide>                   
                                 
                     <InfoContainer>
@@ -80,9 +98,13 @@ const Slider = () => {
                     </InfoContainer>
                 </Slide>
             </Wrapper>
-            <Arrow direction="right" 
-            // onClick={()=>{handleClick("right")}}
-            >
+            <Arrow 
+            direction="right" 
+            onClick={()=>{
+                if (state === banners.length) {
+                    setstate(0);
+                }
+                setstate(state+1)}}>
                 <ArrowForwardIos/>
             </Arrow>
           
