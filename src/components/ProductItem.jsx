@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import Navbar from './Navbar';
+import { useState } from 'react';
+import { cartItems } from './Navbar';
+
 
 const Container = styled.div`
 flex:1;
@@ -42,7 +46,17 @@ font-size:14px;
 margin: 10px 0 0 0`;
 
 
+
 const Product = ({product}) => {
+
+    const [stock, setStock] = useState(product.stock)
+
+    const addToCart = () => {
+        console.log("klik");
+        setStock(stock - 1);
+        cartItems.push(product);
+    }
+   
     return (
         <Container data-id={product.id} data-category={product.category}>
             <Image src={product.img}/>
@@ -52,12 +66,12 @@ const Product = ({product}) => {
                 </Name>
                 <Price>{product.price}€</Price>
                 <Text>{product.text}</Text> 
-                <Stock>Left: {product.stock}</Stock>
+                <Stock>Left: {stock}</Stock>
             </Info>
 
-            <Button>Add to cart</Button>
+            <Button onClick={addToCart}>Add to cart</Button>
         </Container>
     )
 }
 
-export default Product
+export default Product;

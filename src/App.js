@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
@@ -11,6 +11,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Routes } from "react-router";
 import { Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
+
+import { products } from "./data";
 
 const App = () => {
   return (

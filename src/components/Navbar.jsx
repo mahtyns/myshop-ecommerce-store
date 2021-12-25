@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Home from '../pages/Home';
 import Form from '../pages/Form';
@@ -80,9 +80,13 @@ cursor: pointer;
 };
 &:visited { text-decoration: none; }`;
 
-
+export const cartItems = [];
 
 const Navbar = () => {
+
+   const [items, setItems] = useState(cartItems.length);
+    
+
     return (
         <Container>
             <Wrapper>
@@ -104,7 +108,7 @@ const Navbar = () => {
               <Search style={{color: "gray"}}/>
               </SearchDiv>
               <PersonSharp/>
-              <Badge badgeContent={1} color="secondary" max={10}>
+              <Badge badgeContent={items} color="secondary" max={10} >
                   <Link to="/cart">
               <ShoppingCartSharp/>
               </Link>

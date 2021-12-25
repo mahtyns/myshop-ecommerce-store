@@ -84,7 +84,7 @@ const [state, setstate] = useState(0)
             direction="left" 
             onClick={()=> {
                 if (state === 0) {
-                    setstate(banners.length);
+                    setstate(state = banners.length);
                 }
                 setstate(state - 1)}}>
                 <ArrowBackIos/>
