@@ -56,6 +56,8 @@ const Product = ({product}) => {
         setStock(stock - 1);
         cartItems.push(product);
     }
+
+    const ButtonContainer = <Button onClick={addToCart}>Add to cart</Button>
    
     return (
         <Container data-id={product.id} data-category={product.category}>
@@ -66,10 +68,10 @@ const Product = ({product}) => {
                 </Name>
                 <Price>{product.price}€</Price>
                 <Text>{product.text}</Text> 
-                <Stock>Left: {stock}</Stock>
+                {stock ? <Stock>Left: {stock}</Stock> : null}
             </Info>
-
-            <Button onClick={addToCart}>Add to cart</Button>
+            {stock ? ButtonContainer : null}
+            
         </Container>
     )
 }
