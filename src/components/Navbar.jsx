@@ -14,7 +14,7 @@ import {
   Link
 } from "react-router-dom";
 
-
+import {cartAdded} from "../components/ProductItem";
 
 const Container = styled.div`
 height: 60px;
@@ -80,11 +80,11 @@ cursor: pointer;
 };
 &:visited { text-decoration: none; }`;
 
-export const cartItems = [];
+
 
 const Navbar = () => {
 
-   const [items, setItems] = useState(cartItems.length);
+   const [items, setItems] = useState(1);
     
 
     return (

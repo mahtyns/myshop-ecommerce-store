@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import { useState } from 'react';
-import { cartItems } from './Navbar';
+
 
 
 const Container = styled.div`
@@ -49,12 +49,13 @@ margin: 10px 0 0 0`;
 
 const Product = ({product}) => {
 
-    const [stock, setStock] = useState(product.stock)
+    const [stock, setStock] = useState(product.stock);
+    const [cartAdded, setCartAdded] = useState([]);
 
     const addToCart = () => {
-        console.log("klik");
         setStock(stock - 1);
-        cartItems.push(product);
+        setCartAdded(cartAdded => [...cartAdded, product]);
+        console.log(cartAdded);
     }
 
     const ButtonContainer = <Button onClick={addToCart}>Add to cart</Button>

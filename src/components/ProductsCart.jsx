@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { products } from '../data';
 import { Delete } from '@material-ui/icons';
+import {useState} from 'react';
+
+
 
 const Container = styled.div`
 display: flex;
@@ -25,6 +28,7 @@ const Price = styled.h2`
 font-size: 14px`;
 
 const ProductsCart = () => {
+
     return (
         <Container>
            <Image src={products[2].img}></Image>
