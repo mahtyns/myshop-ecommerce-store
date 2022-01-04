@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import ProductItem from './ProductItem';
 
@@ -16,16 +16,23 @@ text-align: center;
 flex-wrap: wrap`;
 
 
-const Products = () => {
+
+
+const Products = (props) => {
+
+
+
     return (
         <Container>
             
-            {products.map((product)=>(
+            {products.map((product, props)=>(
                 <>
-                <ProductItem product={product}/>
+                <ProductItem product={product} cartItems={props.cartItems}/>
                 </>
             ))}
+            
         </Container>
+
     )
 }
 

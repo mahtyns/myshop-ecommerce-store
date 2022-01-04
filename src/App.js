@@ -16,6 +16,8 @@ import ProductsShop from "./pages/ProductsShop";
 import { products } from "./data";
 
 const App = () => {
+  const cartItems = "Hello";
+
   return (
     <>
       <Router>
@@ -25,7 +27,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Form />} />
-          <Route path="/products" element={<ProductsShop />} />
+          <Route
+            path="/products"
+            element={<ProductsShop cartItems={cartItems} />}
+          />
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>

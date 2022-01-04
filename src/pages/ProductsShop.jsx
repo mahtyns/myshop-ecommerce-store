@@ -8,10 +8,17 @@ width: 100%`;
 
 
 
-const ProductsShop = () => {
+const ProductsShop = (props) => {
+
+    
+
+    
     return (
         <Container>
-            <Products />
+            <Products cartItems={props.cartItems} />
+            {/* <div>
+               {props.cartItems.map(prop => <p>{prop}</p> )} 
+            </div> */}
         </Container>
     )
 }

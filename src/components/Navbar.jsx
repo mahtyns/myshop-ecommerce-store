@@ -84,7 +84,6 @@ cursor: pointer;
 
 const Navbar = () => {
 
-   const [items, setItems] = useState(1);
     
 
     return (
@@ -108,7 +107,7 @@ const Navbar = () => {
               <Search style={{color: "gray"}}/>
               </SearchDiv>
               <PersonSharp/>
-              <Badge badgeContent={items} color="secondary" max={10} >
+              <Badge badgeContent={1} color="secondary" max={10} >
                   <Link to="/cart">
               <ShoppingCartSharp/>
               </Link>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import { useState } from 'react';
+import { CardGiftcardRounded } from '@material-ui/icons';
 
 
 
@@ -47,18 +48,18 @@ margin: 10px 0 0 0`;
 
 
 
-const Product = ({product}) => {
+const Product = ({product}, props) => {
 
-    const [stock, setStock] = useState(product.stock);
-    const [cartAdded, setCartAdded] = useState([]);
+    // const [stock, setStock] = useState(product.stock);
+    // const [cartAdded, setCartAdded] = useState([]);
 
-    const addToCart = () => {
-        setStock(stock - 1);
-        setCartAdded(cartAdded => [...cartAdded, product]);
-        console.log(cartAdded);
-    }
+    // const addToCart = () => {
+    //     // setStock(stock - 1);
+    //     setCartAdded([...cartAdded, product.name]);
+    //     console.log(cartAdded);
+    // }
 
-    const ButtonContainer = <Button onClick={addToCart}>Add to cart</Button>
+    const ButtonContainer = <Button onClick={() => props.addToCart}>Add to cart</Button>
    
     return (
         <Container data-id={product.id} data-category={product.category}>
@@ -69,10 +70,12 @@ const Product = ({product}) => {
                 </Name>
                 <Price>{product.price}€</Price>
                 <Text>{product.text}</Text> 
-                {stock ? <Stock>Left: {stock}</Stock> : null}
+                {/* {stock ? <Stock>Left: {stock}</Stock> : null} */}
+                <Stock>{product.stock}</Stock>
+                <p>{props.cartItems}</p>
             </Info>
-            {stock ? ButtonContainer : null}
-            
+            {/* {stock ? ButtonContainer : null} */}
+           {ButtonContainer}
         </Container>
     )
 }
