@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Alert from "./components/Alert";
 import { BrowserRouter as Router } from "react-router-dom";
+import Footer from "./components/Footer";
 
 import { Routes } from "react-router";
 import { Route } from "react-router";
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
+      <Footer />
     </>
   );
 };

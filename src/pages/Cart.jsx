@@ -46,7 +46,7 @@ const Cart = () => {
             </CartContainer>
 
         </Wrapper>
-        <Footer/>
+     
         </>
     )
 }
