@@ -20,17 +20,22 @@ flex-wrap: wrap`;
 
 const Products = (props) => {
 
+    const showProps = () => {
+        console.log(props.cartItems)
+        console.log(newProducts)
+    }
 
+    const newProducts = [...products]
 
     return (
-        <Container>
+        <Container >
             
-            {products.map((product, props)=>(
+              {products.map((product, i)=>(
                 <>
-                <ProductItem product={product} cartItems={props.cartItems}/>
+                <ProductItem {...props} product={product} key={i}   />
                 </>
             ))}
-            
+           <button onClick={showProps}>CLick</button>
         </Container>
 
     )

@@ -16,7 +16,7 @@ import ProductsShop from "./pages/ProductsShop";
 import { products } from "./data";
 
 const App = () => {
-  const cartItems = "Hello";
+  const cartItems = ["a", "b"];
 
   return (
     <>

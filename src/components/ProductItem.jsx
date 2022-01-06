@@ -59,7 +59,11 @@ const Product = ({product}, props) => {
     //     console.log(cartAdded);
     // }
 
-    const ButtonContainer = <Button onClick={() => props.addToCart}>Add to cart</Button>
+    const addToCart = () => {
+        console.log(props);
+    }
+
+    const ButtonContainer = <Button onClick={addToCart}>Add to cart</Button>
    
     return (
         <Container data-id={product.id} data-category={product.category}>
@@ -72,8 +76,9 @@ const Product = ({product}, props) => {
                 <Text>{product.text}</Text> 
                 {/* {stock ? <Stock>Left: {stock}</Stock> : null} */}
                 <Stock>{product.stock}</Stock>
-                <p>{props.cartItems}</p>
+              
             </Info>
+            
             {/* {stock ? ButtonContainer : null} */}
            {ButtonContainer}
         </Container>
