@@ -18,21 +18,21 @@ flex-wrap: wrap`;
 
 
 
-const Products = ( ...props) => {
+const Products = ({cart, addCart, showCart}) => {
 
-    const [cart, setCart] = useState([]);
+    // const [cart, setCart] = useState([]);
 
-    const addCart = (event) => {
-         const id = event.target.id;
-         setCart(cart.concat(id));
+    // const addCart = (event) => {
+    //      const id = event.target.id;
+    //      setCart(cart.concat(id));
         
-    }
+    // }
 
-    const showCart = () => {
-        console.log(cart);
-        console.log(cart.length);
+    // const showCart = () => {
+    //     console.log(cart);
+    //     console.log(cart.length);
 
-    }
+    // }
 
     return (
         <Container >
@@ -40,7 +40,7 @@ const Products = ( ...props) => {
               {products.map((product )=>(
                 <>
                 
-                <ProductItem product={product} {...props} addCart={addCart} />
+                <ProductItem product={product} addCart={addCart} />
                 </>
             ))}
            <button onClick={showCart}>click</button>

@@ -16,18 +16,23 @@ import ProductsShop from "./pages/ProductsShop";
 import { products } from "./data";
 
 const App = () => {
-  const [cartItems, setcartItems] = useState([]);
+  const [cart, setCart] = useState([]);
+  // const [stock, setStock] = useState(products.stock);
 
-  const addToCart = () => {
-    let newProduct = "click";
-    Object.entries(cartItems);
-    console.log(cartItems);
+  const addCart = (event) => {
+    const id = event.target.id;
+    setCart(cart.concat(id));
+  };
+
+  const showCart = () => {
+    console.log(cart);
+    console.log(cart.length);
   };
 
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar cart={cart} />
         <Alert />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -36,7 +41,7 @@ const App = () => {
           <Route
             path="/products"
             element={
-              <ProductsShop cartItems={cartItems} addToCart={addToCart} />
+              <ProductsShop cart={cart} addCart={addCart} showCart={showCart} />
             }
           />
           <Route path="/about" element={<About />} />

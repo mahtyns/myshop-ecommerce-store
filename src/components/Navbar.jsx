@@ -82,7 +82,7 @@ cursor: pointer;
 
 
 
-const Navbar = () => {
+const Navbar = ({cart}) => {
 
     
 
@@ -107,7 +107,7 @@ const Navbar = () => {
               <Search style={{color: "gray"}}/>
               </SearchDiv>
               <PersonSharp/>
-              <Badge badgeContent={1} color="secondary" max={10} >
+              <Badge badgeContent={cart.length} color="secondary" max={10} >
                   <Link to="/cart">
               <ShoppingCartSharp/>
               </Link>
