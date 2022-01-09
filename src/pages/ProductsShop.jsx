@@ -8,7 +8,7 @@ width: 100%`;
 
 
 
-const ProductsShop = (props) => {
+const ProductsShop = (...props) => {
 
     
     
@@ -16,9 +16,7 @@ const ProductsShop = (props) => {
     return (
         <Container>
             <Products {...props} />
-            {/* <div>
-               {props.cartItems.map(prop => <p>{prop}</p> )} 
-            </div> */}
+          
         </Container>
     )
 }

@@ -18,24 +18,32 @@ flex-wrap: wrap`;
 
 
 
-const Products = (props) => {
+const Products = ( ...props) => {
 
-    const showProps = () => {
-        console.log(props.cartItems)
-        console.log(newProducts)
+    const [cart, setCart] = useState([]);
+
+    const addCart = (event) => {
+         const id = event.target.id;
+         setCart(cart.concat(id));
+        
     }
 
-    const newProducts = [...products]
+    const showCart = () => {
+        console.log(cart);
+        console.log(cart.length);
+
+    }
 
     return (
         <Container >
             
-              {products.map((product, i)=>(
+              {products.map((product )=>(
                 <>
-                <ProductItem {...props} product={product} key={i}   />
+                
+                <ProductItem product={product} {...props} addCart={addCart} />
                 </>
             ))}
-           <button onClick={showProps}>CLick</button>
+           <button onClick={showCart}>click</button>
         </Container>
 
     )

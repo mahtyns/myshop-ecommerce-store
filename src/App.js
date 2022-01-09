@@ -16,7 +16,13 @@ import ProductsShop from "./pages/ProductsShop";
 import { products } from "./data";
 
 const App = () => {
-  const cartItems = ["a", "b"];
+  const [cartItems, setcartItems] = useState([]);
+
+  const addToCart = () => {
+    let newProduct = "click";
+    Object.entries(cartItems);
+    console.log(cartItems);
+  };
 
   return (
     <>
@@ -29,7 +35,9 @@ const App = () => {
           <Route path="/contact" element={<Form />} />
           <Route
             path="/products"
-            element={<ProductsShop cartItems={cartItems} />}
+            element={
+              <ProductsShop cartItems={cartItems} addToCart={addToCart} />
+            }
           />
           <Route path="/about" element={<About />} />
         </Routes>

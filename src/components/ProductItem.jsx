@@ -48,7 +48,7 @@ margin: 10px 0 0 0`;
 
 
 
-const Product = ({product}, props) => {
+const Product = ({product, ...props }) => {
 
     // const [stock, setStock] = useState(product.stock);
     // const [cartAdded, setCartAdded] = useState([]);
@@ -59,11 +59,12 @@ const Product = ({product}, props) => {
     //     console.log(cartAdded);
     // }
 
-    const addToCart = () => {
-        console.log(props);
-    }
+    // const addToCart = () => {
+    //     console.log(props);
+       
+    // }
 
-    const ButtonContainer = <Button onClick={addToCart}>Add to cart</Button>
+    const ButtonContainer = <Button id={product.id} onClick={props.addCart}>Add to cart</Button>
    
     return (
         <Container data-id={product.id} data-category={product.category}>
