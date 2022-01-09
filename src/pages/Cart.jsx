@@ -30,7 +30,7 @@ flex: 1;
 
 margin: 10px 20px`;
 
-const Cart = () => {
+const Cart = ({cart, showCart, deleteCart}) => {
     return (
         <>
      
@@ -38,7 +38,7 @@ const Cart = () => {
             <Title>Your Cart</Title>
             <CartContainer>
             <ProductContainer>
-                <ProductsCart/>
+                <ProductsCart cart={cart} showCart={showCart} deleteCart={deleteCart}/>
             </ProductContainer>
             <Summary>
                 <ShopSummary/>

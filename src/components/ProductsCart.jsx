@@ -2,8 +2,11 @@ import styled from 'styled-components';
 import { products } from '../data';
 import { Delete } from '@material-ui/icons';
 import {useState} from 'react';
+import CartReturned from './CartReturned';
 
-
+const Cart = styled.div`
+display: flex;
+flex-direction: column`
 
 const Container = styled.div`
 display: flex;
@@ -27,16 +30,23 @@ font-size: 16px;`;
 const Price = styled.h2`
 font-size: 14px`;
 
-const ProductsCart = () => {
+const ProductsCart = ({cart, showCart, deleteCart}) => {
 
-    return (
-        <Container>
-           <Image src={products[2].img}></Image>
+const productContainer = <> <Image src={products[2].img}></Image>
            <Info>
                <Name>{products[2].name}</Name>
                <Price>Price: {products[2].price}€</Price>
-               <Delete/>
-           </Info>
+               <Delete onClick={deleteCart}/>
+           </Info> 
+           </> 
+
+
+    return (
+        <Container>
+            <Cart>
+          {cart.length ? <CartReturned cart={cart} /> : <p>Your cart is empty</p>}
+          <button onClick={showCart}>click</button>
+          </Cart>
         </Container>
     )
 }

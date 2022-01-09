@@ -29,6 +29,10 @@ const App = () => {
     console.log(cart.length);
   };
 
+  const deleteCart = () => {
+    console.log("oki");
+  };
+
   return (
     <>
       <Router>
@@ -36,7 +40,12 @@ const App = () => {
         <Alert />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/cart"
+            element={
+              <Cart cart={cart} showCart={showCart} deleteCart={deleteCart} />
+            }
+          />
           <Route path="/contact" element={<Form />} />
           <Route
             path="/products"

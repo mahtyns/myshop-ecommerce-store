@@ -8,7 +8,7 @@ width: 100%`;
 
 
 
-const ProductsShop = ({cart, addCart, showCart}) => {
+const ProductsShop = ({cart, addCart}) => {
 
 //    const [cart, setCart] = useState([]);
 
@@ -27,7 +27,7 @@ const ProductsShop = ({cart, addCart, showCart}) => {
 
     return (
         <Container>
-            <Products cart={cart} addCart={addCart} showCart={showCart} />
+            <Products cart={cart} addCart={addCart} />
            
         </Container>
     )

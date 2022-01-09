@@ -18,7 +18,7 @@ flex-wrap: wrap`;
 
 
 
-const Products = ({cart, addCart, showCart}) => {
+const Products = ({cart, addCart}) => {
 
     // const [cart, setCart] = useState([]);
 
@@ -43,7 +43,7 @@ const Products = ({cart, addCart, showCart}) => {
                 <ProductItem product={product} addCart={addCart} />
                 </>
             ))}
-           <button onClick={showCart}>click</button>
+       
         </Container>
 
     )
