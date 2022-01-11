@@ -48,16 +48,11 @@ margin: 10px 0 0 0`;
 
 
 
-const Product = ({product, ...props }) => {
+const Product = ({product,  ...props }) => {
 
     // const [stock, setStock] = useState(product.stock);
     // const [cartAdded, setCartAdded] = useState([]);
 
-    // const addToCart = () => {
-    //     // setStock(stock - 1);
-    //     setCartAdded([...cartAdded, product.name]);
-    //     console.log(cartAdded);
-    // }
 
     // const addToCart = () => {
     //     console.log(props);
@@ -76,7 +71,7 @@ const Product = ({product, ...props }) => {
                 <Price>{product.price}€</Price>
                 <Text>{product.text}</Text> 
                 {/* {stock ? <Stock>Left: {stock}</Stock> : null} */}
-                <Stock>{product.stock}</Stock>
+                <Stock>Left: {product.stock}</Stock>
               
             </Info>
             

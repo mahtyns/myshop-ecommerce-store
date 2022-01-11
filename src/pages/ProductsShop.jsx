@@ -27,7 +27,7 @@ const ProductsShop = ({cart, addCart}) => {
 
     return (
         <Container>
-            <Products cart={cart} addCart={addCart} />
+            <Products cart={cart} addCart={addCart}  />
            
         </Container>
     )

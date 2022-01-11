@@ -37,10 +37,10 @@ const Products = ({cart, addCart}) => {
     return (
         <Container >
             
-              {products.map((product )=>(
+              {products.map((product, index )=>(
                 <>
                 
-                <ProductItem product={product} addCart={addCart} />
+                <ProductItem product={product} index={index} addCart={addCart}   />
                 </>
             ))}
        

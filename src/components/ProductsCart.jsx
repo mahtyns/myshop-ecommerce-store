@@ -30,7 +30,7 @@ font-size: 16px;`;
 const Price = styled.h2`
 font-size: 14px`;
 
-const ProductsCart = ({cart, showCart, deleteCart}) => {
+const ProductsCart = ({cart, showCart, deleteCart, cartItem}) => {
 
 const productContainer = <> <Image src={products[2].img}></Image>
            <Info>

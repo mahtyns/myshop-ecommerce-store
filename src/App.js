@@ -17,11 +17,12 @@ import { products } from "./data";
 
 const App = () => {
   const [cart, setCart] = useState([]);
-  // const [stock, setStock] = useState(products.stock);
+  const [stock, setStock] = useState(products.stock);
 
   const addCart = (event) => {
     const id = event.target.id;
     setCart(cart.concat(id));
+    setStock(stock - 1);
   };
 
   const showCart = () => {
@@ -50,7 +51,12 @@ const App = () => {
           <Route
             path="/products"
             element={
-              <ProductsShop cart={cart} addCart={addCart} showCart={showCart} />
+              <ProductsShop
+                cart={cart}
+                addCart={addCart}
+                showCart={showCart}
+                stock={stock}
+              />
             }
           />
           <Route path="/about" element={<About />} />
