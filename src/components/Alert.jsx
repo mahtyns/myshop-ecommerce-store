@@ -1,19 +1,10 @@
-import styled from 'styled-components'
-
-const Container = styled.div`
-height:30px;
-background-color:#84a59d;
-font-weight: 400;
-text-align: center;
-color: white;
-line-height: 30px`;
-
+import { AlertContainer } from '../styling/alertStyling'
 
 const Alert = () => {
     return (
-        <Container>
-            Free Shipping from 50€
-        </Container>
+        <AlertContainer>
+            Free Shipping from 50€ - SALE - up to 50% OFF
+        </AlertContainer>
     )
 }
 

@@ -44,6 +44,9 @@ Subpage for products added to cart by the user.
 - Styled Components - CSS styling inside each component - see more - [Link](https://styled-components.com)
 - MUI for React - Icons and other UI elements - see more - [Link](https://mui.com)
 
+## Resources
+
+- Pictures - free stock from [Unsplash](https://unsplash.com)
 <!-- ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

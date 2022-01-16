@@ -1,22 +1,21 @@
 import styled from 'styled-components'
 import react, { Component }  from 'react';
 import  { useState } from 'react';
-
 import { ArrowBackIos } from '@material-ui/icons';
 import { ArrowForwardIos } from '@material-ui/icons';
 import { banners } from '../data';
 
 
+const SliderContainer = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-color: #f7ede2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+`;
 
-
-const Container = styled.div`
-height: 100vh;
-width: 100%;
-background-color: #f7ede2;
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: relative`;
 
 const Arrow = styled.div`
 background-color: #fff;;
@@ -71,15 +70,8 @@ const [state, setstate] = useState(0)
      setstate(state + 1); 
  }
 
-
-
-   // Change the banner with arrows
-    // const handleClick= function(direction) {
-    //     console.log(direction);
-    // }
-
     return (
-        <Container>
+        <SliderContainer>
             <Arrow 
             direction="left" 
             onClick={()=> {
@@ -108,7 +100,7 @@ const [state, setstate] = useState(0)
                 <ArrowForwardIos/>
             </Arrow>
           
-        </Container>
+        </SliderContainer>
     )
 }
 

@@ -25,11 +25,11 @@ const CartReturned = ({cart}) => {
         <>
         {cart.map(cartItem => <>
         <Container>
-        <Image src={products[cartItem].img} />
-        <div>
-        <p>{products[cartItem].name}</p>
-        <p>{products[cartItem].price} €</p>
-        <p>Delete</p>
+            <Image src={products[cartItem].img} />
+            <div>
+         <p>{products[cartItem].name}</p>
+         <p>{products[cartItem].price} €</p>
+            <p>Delete</p>
         </div>
 </Container>
 
