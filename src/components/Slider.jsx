@@ -1,20 +1,43 @@
 import styled from 'styled-components'
-import react, { useState }  from 'react';
+import react, { useState, useEffect }  from 'react';
 import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 import { banners } from '../data';
 import { SliderContainer, SliderNavArrows, ImgWrapper, SlideTextContainer, SlideImg, InfoContainer, BannerInfoTitle, BannerInfoButton } from '../styling/sliderStyling';
 
 const Slider = () => {
-
+    
     const [slideBannerNumber, setslideBannerNumber] = useState(0)
+    const lastIndex = banners.length -1;
+    const firstIndex = 0;
 
     const handleClickBack = () => {
+     if (slideBannerNumber === 0 ) {
+         setslideBannerNumber(lastIndex)
+     } else 
      setslideBannerNumber(slideBannerNumber - 1); 
     }
 
     const handleClicForth = () => {
+     if ( slideBannerNumber === banners.length - 1) {
+         setslideBannerNumber(firstIndex);
+     } else
      setslideBannerNumber(slideBannerNumber + 1); 
     }
+
+    // useEffect(() => {
+    // let slider = setInterval(()=>{
+        
+    //     if (slideBannerNumber === 0) {
+    //         setslideBannerNumber(lastIndex);
+    //     }
+    //     else if (slideBannerNumber === banners.length - 1) {
+    //         setslideBannerNumber(firstIndex);
+    //     } else {
+    //     setslideBannerNumber(slideBannerNumber+1)};
+    // }, 5000);
+    //     })
+
+
 
     return (
         <SliderContainer>

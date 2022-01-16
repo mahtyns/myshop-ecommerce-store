@@ -76,4 +76,5 @@ export const BannerInfoButton = styled.button`
   border: none;
   margin: 30px 0px;
   font-size: 20px;
+  cursor: pointer;
 `;
