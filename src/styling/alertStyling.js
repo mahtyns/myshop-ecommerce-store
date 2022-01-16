@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const AlertContainer = styled.div`
   height: 30px;
-  background-color: #84a59d;
+  background-color: #827b6e;
   font-weight: 400;
   text-align: center;
   color: white;

@@ -1,17 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Home from '../pages/Home';
 import Form from '../pages/Form';
 import ProductsShop from '../pages/ProductsShop';
 import { Search, ShoppingCartSharp, PersonSharp } from '@material-ui/icons';
-
 import { Badge } from '@material-ui/core';
-import {
-
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, UserInteractionsContainer, SearchInputWrapper, SearchInput, NavigationList, ListItem } from '../styling/navbarStyling';
 
 
