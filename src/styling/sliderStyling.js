@@ -37,7 +37,6 @@ export const ImgWrapper = styled.div`
 
 export const SlideTextContainer = styled.div`
   width: 100vw;
-  height: 100vh;
   top: 10px;
 `;
 
