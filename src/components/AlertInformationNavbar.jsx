@@ -1,6 +1,6 @@
 import { AlertContainer } from '../styling/alertStyling'
 
-const Alert = () => {
+const AlertInformationNavbar = () => {
     return (
         <AlertContainer>
             Free Shipping from 50€ - SALE - up to 50% OFF
@@ -8,4 +8,4 @@ const Alert = () => {
     )
 }
 
-export default Alert
+export default AlertInformationNavbar

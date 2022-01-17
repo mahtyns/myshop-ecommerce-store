@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-
+import AlertInformationNavbar from "./components/AlertInformationNavbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Form from "./pages/Form";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
-import Alert from "./components/Alert";
 import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
-
 import { Routes } from "react-router";
 import { Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
-
 import { products } from "./data";
 
 const App = () => {
@@ -38,7 +35,7 @@ const App = () => {
     <>
       <Router>
         <Navbar cart={cart} />
-        <Alert />
+        <AlertInformationNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

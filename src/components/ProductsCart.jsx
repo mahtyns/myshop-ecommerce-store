@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { products } from '../data';
 import { Delete } from '@material-ui/icons';
-import {useState} from 'react';
-import CartReturned from './CartReturned';
+import { useState } from 'react';
+import CartReturned from './CartItemSingleAdded';
+import CartItemSingleAdded from './CartItemSingleAdded';
+import { SharedParagraph } from '../styling/sharedStyling';
 
 const Cart = styled.div`
 display: flex;
@@ -30,23 +32,23 @@ font-size: 16px;`;
 const Price = styled.h2`
 font-size: 14px`;
 
-const ProductsCart = ({cart, showCart, deleteCart, cartItem}) => {
+const ProductsCart = ({ cart, showCart, deleteCart, cartItem }) => {
 
-const productContainer = <> <Image src={products[2].img}></Image>
-           <Info>
-               <Name>{products[2].name}</Name>
-               <Price>Price: {products[2].price}€</Price>
-               <Delete onClick={deleteCart}/>
-           </Info> 
-           </> 
+    const productContainer = <> <Image src={products[2].img}></Image>
+        <Info>
+            <Name>{products[2].name}</Name>
+            <Price>Price: {products[2].price}€</Price>
+            <Delete onClick={deleteCart} />
+        </Info>
+    </>
 
 
     return (
         <Container>
             <Cart>
-          {cart.length ? <CartReturned cart={cart} /> : <p>Your cart is empty</p>}
-          <button onClick={showCart}>click</button>
-          </Cart>
+                {cart.length ? <CartItemSingleAdded cart={cart} /> : <SharedParagraph>Your cart is empty</SharedParagraph>}
+
+            </Cart>
         </Container>
     )
 }
