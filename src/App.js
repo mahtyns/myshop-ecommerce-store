@@ -13,35 +13,27 @@ import ProductsShop from "./pages/ProductsShop";
 import { products } from "./data";
 
 const App = () => {
-  const [cart, setCart] = useState([]);
-  const [stock, setStock] = useState(products.stock);
+  const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
+  // const [stock, setStock] = useState(products.stock);
 
-  const addCart = (event) => {
+  const addItemToCart = (event) => {
     const id = event.target.id;
-    setCart(cart.concat(id));
-    setStock(stock - 1);
-  };
-
-  const showCart = () => {
-    console.log(cart);
-    console.log(cart.length);
-  };
-
-  const deleteCart = () => {
-    console.log("oki");
+    // setItemsAddedToCartList(itemsAddedToCartList.concat(id));
+    setItemsAddedToCartList([...itemsAddedToCartList, {id: id, price: products[id].price, name: products[id].name}])
+  
   };
 
   return (
     <>
       <Router>
-        <Navbar cart={cart} />
+        <Navbar itemsAddedToCartList={itemsAddedToCartList} />
         <AlertInformationNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
             path="/cart"
             element={
-              <Cart cart={cart} showCart={showCart} deleteCart={deleteCart} />
+              <Cart itemsAddedToCartList={itemsAddedToCartList} />
             }
           />
           <Route path="/contact" element={<Form />} />
@@ -49,10 +41,9 @@ const App = () => {
             path="/products"
             element={
               <ProductsShop
-                cart={cart}
-                addCart={addCart}
-                showCart={showCart}
-                stock={stock}
+                itemsAddedToCartList={itemsAddedToCartList}
+                addItemToCart={addItemToCart}
+           
               />
             }
           />

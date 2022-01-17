@@ -10,7 +10,7 @@ import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, U
 
 
 
-const Navbar = ({cart}) => {
+const Navbar = ({ itemsAddedToCartList }) => {
     return (
         <NavbarContainer>
             <NavbarWrapper>
@@ -21,22 +21,22 @@ const Navbar = ({cart}) => {
                         <ListItem ><Link to="/contact">Contact</Link></ListItem>
                     </NavigationList>
                 </NavigationLinksContainer>
-                
+
                 <NavbarLogo><Link to="/">MyShop</Link></NavbarLogo>
 
                 <UserInteractionsContainer>
                     <SearchInputWrapper>
-                        <SearchInput/>
+                        <SearchInput />
                         {/* Search Icon */}
-                        <Search style={{color: "gray"}}/>
+                        <Search style={{ color: "gray" }} />
                     </SearchInputWrapper>
                     {/* Person-user Icon */}
-                    <PersonSharp/>
-                    <Badge badgeContent={cart.length} color="secondary" max={10} >
-                    <Link to="/cart">
-                    {/* Shopping Cart Icon */}
-                    <ShoppingCartSharp/>
-                    </Link>
+                    <PersonSharp />
+                    <Badge badgeContent={itemsAddedToCartList.length} color="secondary" max={10} >
+                        <Link to="/cart">
+                            {/* Shopping Cart Icon */}
+                            <ShoppingCartSharp />
+                        </Link>
                     </Badge>
                 </UserInteractionsContainer>
             </NavbarWrapper>

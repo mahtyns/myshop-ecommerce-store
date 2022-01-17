@@ -3,18 +3,18 @@ import { products } from '../data';
 import styled from 'styled-components';
 import { SingleItemAddedContainer, AddedToCartImage } from '../styling/userCartStyling';
 
-const CartItemSingleAdded = ({ cart }) => {
+const CartItemSingleAdded = ({ itemsAddedToCartList }) => {
 
-    console.log(cart)
+    console.log(itemsAddedToCartList)
 
     return (
         <>
-            {cart.map(cartItem => <>
+            {itemsAddedToCartList.map(cartItem => <>
                 <SingleItemAddedContainer>
-                    <AddedToCartImage src={products[cartItem].img} />
+                    <AddedToCartImage src={products[itemsAddedToCartList.id].img} />
                     <div>
-                        <p>{products[cartItem].name}</p>
-                        <p>{products[cartItem].price} €</p>
+                        <p>{products[itemsAddedToCartList.id].name}</p>
+                        <p>{products[itemsAddedToCartList.id].price} €</p>
                         <p>Delete</p>
                     </div>
                 </SingleItemAddedContainer>

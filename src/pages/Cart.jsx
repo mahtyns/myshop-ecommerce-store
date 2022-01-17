@@ -5,14 +5,14 @@ import ShopSummary from '../components/ShopSummary';
 import { SharedTitle } from '../styling/sharedStyling';
 import { CartContainer, CartWrapper, CartProductContainer, CartSummaryContainer } from '../styling/userCartStyling';
 
-const Cart = ({ cart, showCart, deleteCart }) => {
+const Cart = ({ itemsAddedToCartList }) => {
     return (
         <>
             <CartContainer>
                 <SharedTitle>Your Cart</SharedTitle>
                 <CartWrapper>
                     <CartProductContainer>
-                        <ProductsCart cart={cart} showCart={showCart} deleteCart={deleteCart} />
+                        <ProductsCart itemsAddedToCartList={itemsAddedToCartList} />
                     </CartProductContainer>
                     <CartSummaryContainer>
                         <ShopSummary />

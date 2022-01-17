@@ -6,7 +6,7 @@ import { ProductShopContainer } from '../styling/productShopStyling';
 import { SharedParagraph, SharedTitle } from '../styling/sharedStyling';
 
 
-const ProductsShop = ({ cart, addCart }) => {
+const ProductsShop = ({ itemsAddedToCartList, addItemToCart }) => {
 
     return (
         <>
@@ -15,7 +15,7 @@ const ProductsShop = ({ cart, addCart }) => {
             </SharedParagraph>
 
             <ProductShopContainer>
-                <Products cart={cart} addCart={addCart} />
+                <Products itemsAddedToCartList={itemsAddedToCartList} addÏtemToCart={addItemToCart} />
             </ProductShopContainer>
         </>
     )

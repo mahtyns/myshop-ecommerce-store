@@ -32,22 +32,12 @@ font-size: 16px;`;
 const Price = styled.h2`
 font-size: 14px`;
 
-const ProductsCart = ({ cart, showCart, deleteCart, cartItem }) => {
-
-    const productContainer = <> <Image src={products[2].img}></Image>
-        <Info>
-            <Name>{products[2].name}</Name>
-            <Price>Price: {products[2].price}€</Price>
-            <Delete onClick={deleteCart} />
-        </Info>
-    </>
-
+const ProductsCart = ({ itemsAddedToCartList }) => {
 
     return (
         <Container>
             <Cart>
-                {cart.length ? <CartItemSingleAdded cart={cart} /> : <SharedParagraph>Your cart is empty</SharedParagraph>}
-
+                {itemsAddedToCartList.length ? <CartItemSingleAdded itemsAddedToCartList={itemsAddedToCartList} /> : <SharedParagraph>Your cart is empty</SharedParagraph>}
             </Cart>
         </Container>
     )
