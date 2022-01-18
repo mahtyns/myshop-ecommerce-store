@@ -9,14 +9,15 @@ const CartItemSingleAdded = ({ itemsAddedToCartList }) => {
 
     return (
         <>
-            {itemsAddedToCartList.map(cartItem => <>
+            {itemsAddedToCartList.map((cartItem, index) => <>
                 <SingleItemAddedContainer>
-                    <AddedToCartImage src={products[itemsAddedToCartList.id].img} />
+
+                    {/* <AddedToCartImage src={products[itemsAddedToCartList.id].img} />
                     <div>
                         <p>{products[itemsAddedToCartList.id].name}</p>
                         <p>{products[itemsAddedToCartList.id].price} €</p>
                         <p>Delete</p>
-                    </div>
+                    </div> */}
                 </SingleItemAddedContainer>
 
             </>)}

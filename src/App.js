@@ -7,21 +7,38 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
-import { Routes } from "react-router";
-import { Route } from "react-router";
+import { Routes, Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
 import { products } from "./data";
 
 const App = () => {
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
+  const [finalPriceCount, setFinalPriceCount] = useState(0);
   // const [stock, setStock] = useState(products.stock);
 
   const addItemToCart = (event) => {
     const id = event.target.id;
-    // setItemsAddedToCartList(itemsAddedToCartList.concat(id));
-    setItemsAddedToCartList([...itemsAddedToCartList, {id: id, price: products[id].price, name: products[id].name}])
+    setItemsAddedToCartList([...itemsAddedToCartList, {id: id, price: products[id].price, name: products[id].name}]);
+    setFinalPriceCount(updateFinalPrice());
   
   };
+
+  const updateFinalPrice = () => {
+      let finalPrice = finalPriceCount;
+      itemsAddedToCartList.forEach(item => {
+       finalPrice += item.price;
+      })
+      return finalPrice;
+
+  }
+
+  const showAuxiliary = () => {
+    console.log(typeof finalPriceCount);
+    console.log(finalPriceCount)
+
+  }
+
+  
 
   return (
     <>
@@ -33,7 +50,8 @@ const App = () => {
           <Route
             path="/cart"
             element={
-              <Cart itemsAddedToCartList={itemsAddedToCartList} />
+              <Cart itemsAddedToCartList={itemsAddedToCartList}
+              finalPriceCount={finalPriceCount} />
             }
           />
           <Route path="/contact" element={<Form />} />
@@ -43,6 +61,7 @@ const App = () => {
               <ProductsShop
                 itemsAddedToCartList={itemsAddedToCartList}
                 addItemToCart={addItemToCart}
+                showAuxiliary={showAuxiliary}
            
               />
             }
