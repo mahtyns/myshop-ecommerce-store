@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import ProductsCart from '../components/ProductsCart';
 import ShopSummary from '../components/ShopSummary';
-import { SharedTitle } from '../styling/sharedStyling';
+import { SharedSubtitle, SharedTitle } from '../styling/sharedStyling';
 import { CartContainer, CartWrapper, CartProductContainer, CartSummaryContainer } from '../styling/userCartStyling';
 
 const Cart = ({ itemsAddedToCartList, finalPriceCount }) => {
     return (
         <>
             <CartContainer>
-                <SharedTitle>Your Cart</SharedTitle>
+                <SharedTitle>Your Cart Summary</SharedTitle>
                 <CartWrapper>
                     <CartProductContainer>
                         <ProductsCart itemsAddedToCartList={itemsAddedToCartList} />

@@ -7,8 +7,15 @@ text-align: center;
 margin: 10px 0px;
 `;
 
+export const SharedSubtitle = styled.div`
+font-size:40px;
+text-align: left;
+margin: 10px 0px;
+`;
+
 export const SharedParagraph = styled.div`
 padding: 30px 50px;
 display:flex;
 flex-direction: column;
-text-align: center`;
+text-align: center;
+`;

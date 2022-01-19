@@ -18,23 +18,23 @@ const App = () => {
 
   const addItemToCart = (event) => {
     const id = event.target.id;
-    setItemsAddedToCartList([...itemsAddedToCartList, {id: id, price: products[id].price, name: products[id].name}]);
-    setFinalPriceCount(updateFinalPrice());
-  
-  };
+    setItemsAddedToCartList([...itemsAddedToCartList, {id: id, price: products[id].price, amount: 0}]);
+    updateFinalPrice();
+     };
+
 
   const updateFinalPrice = () => {
-      let finalPrice = finalPriceCount;
+      let finalPrice = 0;
       itemsAddedToCartList.forEach(item => {
-       finalPrice += item.price;
-      })
-      return finalPrice;
-
+       finalPrice = finalPrice + item.price;
+      });
+      setFinalPriceCount(finalPrice);
+    
   }
 
   const showAuxiliary = () => {
-    console.log(typeof finalPriceCount);
     console.log(finalPriceCount)
+    
 
   }
 
