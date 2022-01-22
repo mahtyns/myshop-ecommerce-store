@@ -17,7 +17,7 @@ const Form = () => {
         <Wrapper>
             <Forms/>
         </Wrapper>
-        <Footer/>
+   
             
         </>
     )

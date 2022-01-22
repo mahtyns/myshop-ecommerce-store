@@ -1,10 +1,13 @@
 import styled from 'styled-components'
+import react, { Component }  from 'react';
+import  { useState } from 'react';
 
 import { ArrowBackIos } from '@material-ui/icons';
 import { ArrowForwardIos } from '@material-ui/icons';
 import { banners } from '../data';
-let active = 0;
-const time = 5000;
+
+
+
 
 const Container = styled.div`
 height: 100vh;
@@ -53,32 +56,41 @@ const InfoContainer = styled.div`
 `;
 
 
+
+// const Slider = () => {
+
 const Slider = () => {
 
-const changeSlide = () => {
-    active++;
-    if (active = banners.length) {
-        active = 0;
-    }
-}
+const [state, setstate] = useState(0)
 
-let sliderInterval = setInterval(changeSlide, time)
+ const handleClickBack = () => {
+     setstate(state - 1); 
+ }
+
+ const handleClicForth = () => {
+     setstate(state + 1); 
+ }
 
 
-    // Change the banner with arrows
+
+   // Change the banner with arrows
     // const handleClick= function(direction) {
     //     console.log(direction);
     // }
 
     return (
         <Container>
-            <Arrow direction="left" 
-            // onClick={()=>{handleClick("left")}}
-            >
+            <Arrow 
+            direction="left" 
+            onClick={()=> {
+                if (state === 0) {
+                    setstate(state = banners.length);
+                }
+                setstate(state - 1)}}>
                 <ArrowBackIos/>
             </Arrow>
             <Wrapper>
-                  <SlideImg src={banners[active].img}/>     
+                  <SlideImg src={banners[state].img}/>     
                 <Slide>                   
                                 
                     <InfoContainer>
@@ -86,14 +98,20 @@ let sliderInterval = setInterval(changeSlide, time)
                     </InfoContainer>
                 </Slide>
             </Wrapper>
-            <Arrow direction="right" 
-            // onClick={()=>{handleClick("right")}}
-            >
+            <Arrow 
+            direction="right" 
+            onClick={()=>{
+                if (state === banners.length) {
+                    setstate(0);
+                }
+                setstate(state+1)}}>
                 <ArrowForwardIos/>
             </Arrow>
           
         </Container>
     )
 }
+
+
 
 export default Slider

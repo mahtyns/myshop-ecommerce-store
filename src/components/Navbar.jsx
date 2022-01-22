@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Home from '../pages/Home';
 import Form from '../pages/Form';
@@ -14,7 +14,7 @@ import {
   Link
 } from "react-router-dom";
 
-
+import {cartAdded} from "../components/ProductItem";
 
 const Container = styled.div`
 height: 60px;
@@ -82,7 +82,10 @@ cursor: pointer;
 
 
 
-const Navbar = () => {
+const Navbar = ({cart}) => {
+
+    
+
     return (
         <Container>
             <Wrapper>
@@ -104,7 +107,7 @@ const Navbar = () => {
               <Search style={{color: "gray"}}/>
               </SearchDiv>
               <PersonSharp/>
-              <Badge badgeContent={1} color="secondary" max={10}>
+              <Badge badgeContent={cart.length} color="secondary" max={10} >
                   <Link to="/cart">
               <ShoppingCartSharp/>
               </Link>

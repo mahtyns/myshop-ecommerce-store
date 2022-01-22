@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import ProductItem from './ProductItem';
 
@@ -16,16 +16,36 @@ text-align: center;
 flex-wrap: wrap`;
 
 
-const Products = () => {
+
+
+const Products = ({cart, addCart}) => {
+
+    // const [cart, setCart] = useState([]);
+
+    // const addCart = (event) => {
+    //      const id = event.target.id;
+    //      setCart(cart.concat(id));
+        
+    // }
+
+    // const showCart = () => {
+    //     console.log(cart);
+    //     console.log(cart.length);
+
+    // }
+
     return (
-        <Container>
+        <Container >
             
-            {products.map((product)=>(
+              {products.map((product, index )=>(
                 <>
-                <ProductItem product={product}/>
+                
+                <ProductItem product={product} index={index} addCart={addCart}   />
                 </>
             ))}
+       
         </Container>
+
     )
 }
 

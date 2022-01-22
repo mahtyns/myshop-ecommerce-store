@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const Container = styled.div`
 padding: 20px 0px;
@@ -47,8 +48,8 @@ background-color: black;
 color: white;
 border: none;
 padding: 20px 80px;
-float: right;
-margin: 10px 30px;
+float: left;
+margin: 30px 60px;
 cursor: pointer;
 `;
 
@@ -61,7 +62,20 @@ justify-content: space-between`;
 
 
 const Forms = () => {
+
+    const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
+    const [mail, setMail] = useState("");
+    const [tel, setTel] = useState(0);
+    const [msg, setMsg] = useState("")
+
+    const handleSubmit = () => {
+        console.log(`${name} ${surname} ${mail} ${tel} ${msg}`);
+    }
+
+
     return (
+
         <Container>
     
             <InfoList>
@@ -80,20 +94,22 @@ const Forms = () => {
             <Form>
                
                 <label>Your name</label>
-                <FormInput placeholder='Your name'/>
+                <FormInput placeholder='Your name' required onChange={(e)=>setName(e.target.value)}/>
                 <label>Your surname</label>
-                <FormInput placeholder='Your surname'/>
+                <FormInput placeholder='Your surname' required onChange={(e)=>setSurname(e.target.value)}/>
                 <label>Your mail</label>
-                <FormInput placeholder='Your mail'/>
+                <FormInput placeholder='Your mail' type="mail" required onChange={(e)=>setMail(e.target.value)}/>
                 <label>Your phone (optional)</label>
-                <FormInput placeholder='123456789' type="number"/>
+                <FormInput placeholder='123456789' type="number" onChange={(e)=>setTel(e.target.value)}/>
+                <label>Message</label>
+                <FormInput type="text" placeholder='Write your message here' onChange={(e)=>setMsg(e.target.value)} />
             </Form>
             <InfoMap>
                     Map
                 </InfoMap>
             </FormContainer>
             <div>
-            <Button>Send message</Button>
+            <Button onClick={handleSubmit}>Send message</Button>
             </div>
            
         </Container>

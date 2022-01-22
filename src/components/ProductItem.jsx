@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import Navbar from './Navbar';
+import { useState } from 'react';
+import { CardGiftcardRounded } from '@material-ui/icons';
+
+
 
 const Container = styled.div`
 flex:1;
@@ -42,7 +47,20 @@ font-size:14px;
 margin: 10px 0 0 0`;
 
 
-const Product = ({product}) => {
+
+const Product = ({product,  ...props }) => {
+
+    // const [stock, setStock] = useState(product.stock);
+    // const [cartAdded, setCartAdded] = useState([]);
+
+
+    // const addToCart = () => {
+    //     console.log(props);
+       
+    // }
+
+    const ButtonContainer = <Button id={product.id} onClick={props.addCart}>Add to cart</Button>
+   
     return (
         <Container data-id={product.id} data-category={product.category}>
             <Image src={product.img}/>
@@ -52,12 +70,15 @@ const Product = ({product}) => {
                 </Name>
                 <Price>{product.price}€</Price>
                 <Text>{product.text}</Text> 
+                {/* {stock ? <Stock>Left: {stock}</Stock> : null} */}
                 <Stock>Left: {product.stock}</Stock>
+              
             </Info>
-
-            <Button>Add to cart</Button>
+            
+            {/* {stock ? ButtonContainer : null} */}
+           {ButtonContainer}
         </Container>
     )
 }
 
-export default Product
+export default Product;
