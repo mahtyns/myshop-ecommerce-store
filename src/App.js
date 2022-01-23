@@ -12,16 +12,26 @@ import ProductsShop from "./pages/ProductsShop";
 import { products } from "./data";
 
 const App = () => {
+  const [addedProductAmount, setAddedProductAmount] = useState(1);
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
-  // const [stock, setStock] = useState(products.stock);
-
+  
   const addItemToCart = (event) => {
     const id = event.target.id;
-    setItemsAddedToCartList([...itemsAddedToCartList, {id: id, price: products[id].price, amount: 0}]);
+    multiplyProductAddedAmount(id)
+    setItemsAddedToCartList([...itemsAddedToCartList, {id: id, price: products[id].price, amount: addedProductAmount, }]);
     updateFinalPrice();
      };
 
+  const multiplyProductAddedAmount = (index) => {
+    let checkIfExist = itemsAddedToCartList.find((product)=> product.id === index)
+    if (checkIfExist) {
+      return true;
+      // let addProduct = addedProductAmount + 1;
+      // setAddedProductAmount(addProduct);
+    } else return;
+
+  }   
 
   const updateFinalPrice = () => {
       let finalPrice = 0;
@@ -33,7 +43,7 @@ const App = () => {
   }
 
   const showAuxiliary = () => {
-    console.log(finalPriceCount)
+   
     
 
   }
@@ -51,7 +61,9 @@ const App = () => {
             path="/cart"
             element={
               <Cart itemsAddedToCartList={itemsAddedToCartList}
-              finalPriceCount={finalPriceCount} />
+              finalPriceCount={finalPriceCount}
+              addedProductAmount={addedProductAmount} 
+              multiplyProductAddedAmount = {multiplyProductAddedAmount}/>
             }
           />
           <Route path="/contact" element={<Form />} />

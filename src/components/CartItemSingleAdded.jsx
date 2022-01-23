@@ -7,19 +7,21 @@ import { Delete } from '@material-ui/icons';
 const CartItemSingleAdded = ({ itemsAddedToCartList }) => {
 
     return (
-        <>
-            {itemsAddedToCartList.map((addedCartItem, itemIndex) =>
+        <>{
+
+            itemsAddedToCartList.map((addedCartItem) =>
                 <SingleItemAddedContainer>
                     <AddedToCartImage src={products[addedCartItem.id].img} />
                     <AddedToCartInformation>
                         <CartProductAuxiliaryText>Product Id: {addedCartItem.id}</CartProductAuxiliaryText>
                         <CartProductName>{products[addedCartItem.id].name}</CartProductName>
                         <CartProductPrice>{addedCartItem.price} €</CartProductPrice>
-                        <CartProductAuxiliaryText>Amount: 1 <AddRemoveCartProductButton><Delete /></AddRemoveCartProductButton></CartProductAuxiliaryText>
+                        <CartProductAuxiliaryText>Amount: {addedCartItem.amount} <AddRemoveCartProductButton><Delete /></AddRemoveCartProductButton></CartProductAuxiliaryText>
                     </AddedToCartInformation>
                 </SingleItemAddedContainer>
-            )}
-        </>
+            )
+
+        }</>
     )
 
 }
