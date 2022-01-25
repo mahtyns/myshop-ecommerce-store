@@ -1,10 +1,9 @@
 import React from 'react'
 import { products } from '../data';
-import styled from 'styled-components';
 import { SingleItemAddedContainer, AddedToCartImage, AddedToCartInformation, CartProductAuxiliaryText, CartProductName, CartProductPrice, AddRemoveCartProductButton } from '../styling/userCartStyling';
 import { Delete } from '@material-ui/icons';
 
-const CartItemSingleAdded = ({ itemsAddedToCartList }) => {
+const CartItemSingleAdded = ({ itemsAddedToCartList, deleteItemCart }) => {
 
     return (
         <>{
@@ -16,7 +15,7 @@ const CartItemSingleAdded = ({ itemsAddedToCartList }) => {
                         <CartProductAuxiliaryText>Product Id: {addedCartItem.id}</CartProductAuxiliaryText>
                         <CartProductName>{products[addedCartItem.id].name}</CartProductName>
                         <CartProductPrice>{addedCartItem.price} €</CartProductPrice>
-                        <CartProductAuxiliaryText>Amount: {addedCartItem.amount} <AddRemoveCartProductButton><Delete /></AddRemoveCartProductButton></CartProductAuxiliaryText>
+                        <CartProductAuxiliaryText>Amount: {addedCartItem.amount} <AddRemoveCartProductButton><Delete onClick={deleteItemCart(addedCartItem.id)} /></AddRemoveCartProductButton></CartProductAuxiliaryText>
                     </AddedToCartInformation>
                 </SingleItemAddedContainer>
             )

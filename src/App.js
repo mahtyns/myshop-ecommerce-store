@@ -42,6 +42,12 @@ const App = () => {
     
   }
 
+  const deleteItemCart = (index) => {
+    const newProductCartList = itemsAddedToCartList.filter(product => product.id !== index)
+    setItemsAddedToCartList(newProductCartList);
+    console.log("delete")
+  }
+
   const showAuxiliary = () => {
    
     
@@ -63,7 +69,8 @@ const App = () => {
               <Cart itemsAddedToCartList={itemsAddedToCartList}
               finalPriceCount={finalPriceCount}
               addedProductAmount={addedProductAmount} 
-              multiplyProductAddedAmount = {multiplyProductAddedAmount}/>
+              multiplyProductAddedAmount={multiplyProductAddedAmount}
+              deleteItemCart={deleteItemCart}/>
             }
           />
           <Route path="/contact" element={<Form />} />

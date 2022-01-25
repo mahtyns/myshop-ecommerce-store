@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { SharedTitle, SharedParagraph } from '../styling/sharedStyling';
 import { AboutContainer } from '../styling/aboutUsStyling';
 
