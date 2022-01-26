@@ -44,8 +44,11 @@ const App = () => {
 
   const deleteItemCart = (index) => {
     const newProductCartList = itemsAddedToCartList.filter(product => product.id !== index)
+    let finalPrice = finalPriceCount;
+    finalPrice = finalPrice - 25
     setItemsAddedToCartList(newProductCartList);
-    console.log("delete")
+    setFinalPriceCount(finalPrice);
+    console.log()
   }
 
   const showAuxiliary = () => {
