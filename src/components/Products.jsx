@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { products } from '../data';
 import { ProductsContainer } from '../styling/productShopStyling';
 
-const Products = ({ itemsAddedToCartList, addItemToCart, showAuxiliary }) => {
+const Products = ({ itemsAddedToCartList, addItemToCart }) => {
 
     return (
         <ProductsContainer >
@@ -12,7 +12,6 @@ const Products = ({ itemsAddedToCartList, addItemToCart, showAuxiliary }) => {
             {products.map((product, index) => (
                 <ProductItem product={product} index={index} addItemToCart={addItemToCart} />
             ))}
-            <button onClick={showAuxiliary}>Click</button>
         </ProductsContainer>
 
     )

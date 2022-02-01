@@ -12,24 +12,23 @@ import ProductsShop from "./pages/ProductsShop";
 import { products } from "./data";
 
 const App = () => {
-  const [addedProductAmount, setAddedProductAmount] = useState(1);
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
   
-  const addItemToCart = (event) => {
-    const id = event.target.id;
-    multiplyProductAddedAmount(id)
-    setItemsAddedToCartList([...itemsAddedToCartList, {id: id, price: products[id].price, amount: addedProductAmount, }]);
-    updateFinalPrice();
-     };
+  const addItemToCart = (addedProduct) => {
+    // let baseAmount = 0;
+    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: 1, stock: addedProduct.stock - 1};
+    // if (!checkIfRepeatedInCart(addedProduct.id)) {
+      setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
+    // } else {
+    }
+   
 
-  const multiplyProductAddedAmount = (index) => {
-    let checkIfExist = itemsAddedToCartList.find((product)=> product.id === index)
-    if (checkIfExist) {
-      return true;
-      // let addProduct = addedProductAmount + 1;
-      // setAddedProductAmount(addProduct);
-    } else return;
+    const checkIfRepeatedInCart = (index) => {
+    return itemsAddedToCartList.find((product)=> product.id === index)
+    // if (repeatedElementCart) {
+    //   // setAddedProductAmount(addedProductAmount + 1);
+    // } else return;
 
   }   
 
@@ -51,14 +50,6 @@ const App = () => {
     console.log()
   }
 
-  const showAuxiliary = () => {
-   
-    
-
-  }
-
-  
-
   return (
     <>
       <Router>
@@ -71,8 +62,6 @@ const App = () => {
             element={
               <Cart itemsAddedToCartList={itemsAddedToCartList}
               finalPriceCount={finalPriceCount}
-              addedProductAmount={addedProductAmount} 
-              multiplyProductAddedAmount={multiplyProductAddedAmount}
               deleteItemCart={deleteItemCart}/>
             }
           />
@@ -83,8 +72,6 @@ const App = () => {
               <ProductsShop
                 itemsAddedToCartList={itemsAddedToCartList}
                 addItemToCart={addItemToCart}
-                showAuxiliary={showAuxiliary}
-           
               />
             }
           />

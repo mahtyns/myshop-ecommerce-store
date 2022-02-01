@@ -11,6 +11,7 @@ const CartItemSingleAdded = ({ itemsAddedToCartList, deleteItemCart }) => {
         <>{
 
             itemsAddedToCartList.map((addedCartItem) =>
+
                 <SingleItemAddedContainer>
                     <AddedToCartImage src={products[addedCartItem.id].img} />
                     <AddedToCartInformation>
@@ -20,6 +21,8 @@ const CartItemSingleAdded = ({ itemsAddedToCartList, deleteItemCart }) => {
                         <CartProductAuxiliaryText>Amount: {addedCartItem.amount} <AddRemoveCartProductButton onClick={function () { deleteItemCart(addedCartItem.id) }}><Delete /></AddRemoveCartProductButton></CartProductAuxiliaryText>
                     </AddedToCartInformation>
                 </SingleItemAddedContainer>
+
+
             )
 
         }</>
