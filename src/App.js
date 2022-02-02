@@ -16,30 +16,24 @@ const App = () => {
   const [finalPriceCount, setFinalPriceCount] = useState(0);
   
   const addItemToCart = (addedProduct) => {
-    // let baseAmount = 0;
-    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: 1, stock: addedProduct.stock - 1};
-    // if (!checkIfRepeatedInCart(addedProduct.id)) {
+    let baseAddedAmount = 1;
+    let totalAmount = 0;
+    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: baseAddedAmount, stock: addedProduct.stock - 1};
+    console.log(checkIfRepeatedInCart(addedProduct.id))
+    if (!checkIfRepeatedInCart(addedProduct.id)) {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
-    // } else {
+      setFinalPriceCount(finalPriceCount + addedProduct.price)
+     } else {
+
     }
-   
+
+    }
+ 
 
     const checkIfRepeatedInCart = (index) => {
-    return itemsAddedToCartList.find((product)=> product.id === index)
-    // if (repeatedElementCart) {
-    //   // setAddedProductAmount(addedProductAmount + 1);
-    // } else return;
-
-  }   
-
-  const updateFinalPrice = () => {
-      let finalPrice = 0;
-      itemsAddedToCartList.forEach(item => {
-       finalPrice = finalPrice + item.price;
-      });
-      setFinalPriceCount(finalPrice);
-    
-  }
+      let repeatedItemInCart = itemsAddedToCartList.find((product)=> product.id === index);
+      return repeatedItemInCart;
+    }   
 
   const deleteItemCart = (index) => {
     const newProductCartList = itemsAddedToCartList.filter(product => product.id !== index)
