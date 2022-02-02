@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import Products from "../components/Products";
-import styled from 'styled-components';
-import { products } from '../data';
 import { ProductShopContainer } from '../styling/productShopStyling';
 import { SharedParagraph, SharedTitle } from '../styling/sharedStyling';
 
 
-const ProductsShop = ({ itemsAddedToCartList, addItemToCart, showAuxiliary }) => {
+const ProductsShop = ({ itemsAddedToCartList, addItemToCart, availableStock }) => {
 
     return (
         <>
@@ -15,7 +13,7 @@ const ProductsShop = ({ itemsAddedToCartList, addItemToCart, showAuxiliary }) =>
             </SharedParagraph>
 
             <ProductShopContainer>
-                <Products itemsAddedToCartList={itemsAddedToCartList} addItemToCart={addItemToCart} showAuxiliary={showAuxiliary} />
+                <Products itemsAddedToCartList={itemsAddedToCartList} addItemToCart={addItemToCart} availableStock={availableStock} />
             </ProductShopContainer>
         </>
     )

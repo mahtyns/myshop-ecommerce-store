@@ -18,7 +18,7 @@ const CartItemSingleAdded = ({ itemsAddedToCartList, deleteItemCart }) => {
                         <CartProductAuxiliaryText>Product Id: {addedCartItem.id}</CartProductAuxiliaryText>
                         <CartProductName>{products[addedCartItem.id].name}</CartProductName>
                         <CartProductPrice>{addedCartItem.price} €</CartProductPrice>
-                        <CartProductAuxiliaryText>Amount: {addedCartItem.amount} <AddRemoveCartProductButton onClick={function () { deleteItemCart(addedCartItem.id) }}><Delete /></AddRemoveCartProductButton></CartProductAuxiliaryText>
+                        <CartProductAuxiliaryText>Amount: {addedCartItem.amount} <AddRemoveCartProductButton onClick={function () { deleteItemCart(addedCartItem) }}><Delete /></AddRemoveCartProductButton></CartProductAuxiliaryText>
                     </AddedToCartInformation>
                 </SingleItemAddedContainer>
 

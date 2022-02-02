@@ -10,7 +10,7 @@ import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, U
 
 
 
-const Navbar = ({ itemsAddedToCartList }) => {
+const Navbar = ({ itemsAddedToCartList, finalPriceCount }) => {
     return (
         <NavbarContainer>
             <NavbarWrapper>
@@ -38,6 +38,7 @@ const Navbar = ({ itemsAddedToCartList }) => {
                             <ShoppingCartSharp />
                         </Link>
                     </Badge>
+                    {finalPriceCount} €
                 </UserInteractionsContainer>
             </NavbarWrapper>
         </NavbarContainer>

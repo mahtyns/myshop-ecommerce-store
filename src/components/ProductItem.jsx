@@ -1,9 +1,6 @@
-import styled from 'styled-components';
-import { useState } from 'react';
-import { CardGiftcardRounded } from '@material-ui/icons';
 import { ProductItemContainer, ProductItemImage, ProductInfo, ProductName, ProductPrice, ProductDescr, AddCartButton, ProductStock } from '../styling/productShopStyling';
 
-const Product = ({ product, ...props }) => {
+const Product = ({ product, availableStock, ...props }) => {
 
     const ButtonContainer = <AddCartButton onClick={() => { props.addItemToCart(product) }}>Add to cart</AddCartButton>
 

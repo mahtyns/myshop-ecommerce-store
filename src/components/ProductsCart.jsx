@@ -7,16 +7,15 @@ import CartItemSingleAdded from './CartItemSingleAdded';
 import { SharedParagraph } from '../styling/sharedStyling';
 import { CartProductsSummaryContainer, CartProductsSummaryItems } from '../styling/userCartStyling';
 
-const ProductsCart = ({ itemsAddedToCartList, addedProductAmount, multiplyProductAddedAmount, deleteItemCart }) => {
+const ProductsCart = ({ itemsAddedToCartList, deleteItemCart }) => {
 
     return (
         <CartProductsSummaryContainer>
             <CartProductsSummaryItems>
                 {itemsAddedToCartList.length ? <CartItemSingleAdded
                     itemsAddedToCartList={itemsAddedToCartList}
-                    addedProductAmount={addedProductAmount}
-                    multiplyProductAddedAmount={multiplyProductAddedAmount}
-                    deleteItemCart={deleteItemCart} /> : <SharedParagraph>Your cart is empty</SharedParagraph>}
+                    deleteItemCart={deleteItemCart}
+                /> : <SharedParagraph>Your cart is empty</SharedParagraph>}
             </CartProductsSummaryItems>
         </CartProductsSummaryContainer>
     )

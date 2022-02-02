@@ -14,15 +14,17 @@ import { products } from "./data";
 const App = () => {
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
+  // const [availableStock, setAvailableStock] = useState();
   
   const addItemToCart = (addedProduct) => {
-    let baseAddedAmount = 1;
+    let baseAddedAmount = 0;
     let totalAmount = 0;
-    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: baseAddedAmount, stock: addedProduct.stock - 1};
+    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: baseAddedAmount + 1};
     console.log(checkIfRepeatedInCart(addedProduct.id))
     if (!checkIfRepeatedInCart(addedProduct.id)) {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
-      setFinalPriceCount(finalPriceCount + addedProduct.price)
+      setFinalPriceCount(finalPriceCount + addedProduct.price);
+      // setAvailableStock(addedProduct.stock - 1)
      } else {
 
     }
@@ -35,19 +37,18 @@ const App = () => {
       return repeatedItemInCart;
     }   
 
-  const deleteItemCart = (index) => {
-    const newProductCartList = itemsAddedToCartList.filter(product => product.id !== index)
-    let finalPrice = finalPriceCount;
-    finalPrice = finalPrice - 25
+  const deleteItemCart = (addedProduct) => {
+    const newProductCartList = itemsAddedToCartList.filter(product => product.id !== addedProduct.id)
     setItemsAddedToCartList(newProductCartList);
-    setFinalPriceCount(finalPrice);
+    setFinalPriceCount(finalPriceCount - addedProduct.price);
     console.log()
   }
 
   return (
     <>
       <Router>
-        <Navbar itemsAddedToCartList={itemsAddedToCartList} />
+        <Navbar itemsAddedToCartList={itemsAddedToCartList}
+        finalPriceCount = {finalPriceCount} />
         <AlertInformationNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -56,7 +57,8 @@ const App = () => {
             element={
               <Cart itemsAddedToCartList={itemsAddedToCartList}
               finalPriceCount={finalPriceCount}
-              deleteItemCart={deleteItemCart}/>
+              deleteItemCart={deleteItemCart}
+              />
             }
           />
           <Route path="/contact" element={<Form />} />
@@ -66,6 +68,7 @@ const App = () => {
               <ProductsShop
                 itemsAddedToCartList={itemsAddedToCartList}
                 addItemToCart={addItemToCart}
+                // availableStock={availableStock}
               />
             }
           />
