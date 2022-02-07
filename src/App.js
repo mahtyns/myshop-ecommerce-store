@@ -9,16 +9,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
-import { products } from "./data";
 
 const App = () => {
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
-  // const [availableStock, setAvailableStock] = useState();
   
   const addItemToCart = (addedProduct) => {
+    let totalAmount = 0;
     let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
-    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: 1};
+    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: totalAmount + 1};
     console.log(typeof newProductInCart.amount)
     if (!checkIfRepeatedInCart(addedProduct.id)) {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
@@ -39,7 +38,7 @@ const App = () => {
   const deleteItemCart = (addedProduct) => {
     const newProductCartList = itemsAddedToCartList.filter(product => product.id !== addedProduct.id)
     setItemsAddedToCartList(newProductCartList);
-    setFinalPriceCount(finalPriceCount - addedProduct.price);
+    setFinalPriceCount(finalPriceCount - (addedProduct.price * addedProduct.amount));
   }
 
   return (
