@@ -17,16 +17,15 @@ const App = () => {
   // const [availableStock, setAvailableStock] = useState();
   
   const addItemToCart = (addedProduct) => {
-    let baseAddedAmount = 0;
-    let totalAmount = 0;
-    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: baseAddedAmount + 1};
-    console.log(checkIfRepeatedInCart(addedProduct.id))
+    let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
+    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: 1};
+    console.log(typeof newProductInCart.amount)
     if (!checkIfRepeatedInCart(addedProduct.id)) {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
-      setFinalPriceCount(finalPriceCount + addedProduct.price);
-      // setAvailableStock(addedProduct.stock - 1)
+      setFinalPriceCount(finalPriceCount + addedProduct.price );
      } else {
-
+      itemsAddedToCartList[addedMultipleIndex].amount += 1;
+      setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleIndex].price )
     }
 
     }
@@ -41,7 +40,6 @@ const App = () => {
     const newProductCartList = itemsAddedToCartList.filter(product => product.id !== addedProduct.id)
     setItemsAddedToCartList(newProductCartList);
     setFinalPriceCount(finalPriceCount - addedProduct.price);
-    console.log()
   }
 
   return (
