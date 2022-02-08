@@ -13,21 +13,28 @@ import ProductsShop from "./pages/ProductsShop";
 const App = () => {
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
-   
+  const [itemsCartNumber, setItemsCartNumber] = useState(0);
+
+
   const addItemToCart = (addedProduct) => {
-    let totalAmount = 0;
     let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
-    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: totalAmount + 1};
-    console.log(typeof newProductInCart.amount)
+    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: 1};
     if (!checkIfRepeatedInCart(addedProduct.id)) {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
       setFinalPriceCount(finalPriceCount + addedProduct.price );
      } else {
       itemsAddedToCartList[addedMultipleIndex].amount += 1;
       setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleIndex].price )
+      setItemsCartNumber(itemsCartNumber + 1)
+      }
+      console.log(itemsCartNumber)
     }
 
-    }
+    // const totalAmountProductsCart = (addedProductAmount) => {
+    //   let totalCartAmount = 0;
+    //   totalCartAmount += addedProductAmount;
+    //   console.log(totalCartAmount)
+    // }
  
 
     const checkIfRepeatedInCart = (index) => {

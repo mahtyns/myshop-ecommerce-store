@@ -71,6 +71,42 @@ export const products = [
     price: 49,
     text: "Yves Saint Laurent Black Opium eau de toilette",
   },
+  {
+    id: 8,
+    name: "Biotherm Aqua Source",
+    category: "Cream",
+    img: "https://images.unsplash.com/photo-1620946419190-5b1345a7e5be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+    stock: 6,
+    price: 27,
+    text: "Day cream hydration 48h",
+  },
+  {
+    id: 9,
+    name: "I'm Fabulous Bio Oil",
+    category: "Oil",
+    img: "https://images.unsplash.com/photo-1532413992378-f169ac26fff0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+    stock: 3,
+    price: 34,
+    text: "Body oil for dry & normal skin",
+  },
+  {
+    id: 10,
+    name: "Frontrow HairCare",
+    category: "Packs",
+    img: "https://images.unsplash.com/photo-1610705267928-1b9f2fa7f1c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    stock: 3,
+    price: 49,
+    text: "Hair Care Pack Shampoo + Conditioner",
+  },
+  {
+    id: 11,
+    name: "Scandinavian Biolabs Pack",
+    category: "Packs",
+    img: "https://images.unsplash.com/photo-1624984672997-8101166b34b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    stock: 7,
+    price: 79,
+    text: "For Dry and Brittle Hair",
+  },
 ];
 
 //Slider Main Pictures
