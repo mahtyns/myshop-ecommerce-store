@@ -13,7 +13,7 @@ import ProductsShop from "./pages/ProductsShop";
 const App = () => {
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
-  
+   
   const addItemToCart = (addedProduct) => {
     let totalAmount = 0;
     let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
@@ -41,6 +41,19 @@ const App = () => {
     setFinalPriceCount(finalPriceCount - (addedProduct.price * addedProduct.amount));
   }
 
+  const addOneProductCart = (addedProduct) => {
+      addedProduct.amount += 1;
+      setFinalPriceCount(finalPriceCount + addedProduct.price)
+  }
+
+  const removeOneProductCart = (addedProduct) => {
+    if (addedProduct.amount === 1) {
+      deleteItemCart(addedProduct);
+    }
+    addedProduct.amount -= 1;
+    setFinalPriceCount(finalPriceCount - addedProduct.price)
+  }
+
   return (
     <>
       <Router>
@@ -55,6 +68,8 @@ const App = () => {
               <Cart itemsAddedToCartList={itemsAddedToCartList}
               finalPriceCount={finalPriceCount}
               deleteItemCart={deleteItemCart}
+              addOneProductCart={addOneProductCart}
+              removeOneProductCart={removeOneProductCart}
               />
             }
           />
