@@ -18,4 +18,10 @@ padding: 30px 50px;
 display:flex;
 flex-direction: column;
 text-align: center;
+font-family: "Montserrat", sans-serif;
 `;
+
+export const SharedSecondaryText = styled.div`
+text-align: left;
+padding: 10px 15px;
+font-size: 20px`;

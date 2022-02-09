@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AlertInformationNavbar from "./components/AlertInformationNavbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
@@ -9,6 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
+import PurchaseSummary from "./pages/PurchaseSummary";
 
 const App = () => {
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
@@ -18,7 +19,7 @@ const App = () => {
 
   const addItemToCart = (addedProduct) => {
     let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
-    let newProductInCart = {id: addedProduct.id, price: addedProduct.price, amount: 1};
+    let newProductInCart = {name: addedProduct.name, id: addedProduct.id, price: addedProduct.price, amount: 1};
     if (!checkIfRepeatedInCart(addedProduct.id)) {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
       setFinalPriceCount(finalPriceCount + addedProduct.price );
@@ -91,6 +92,9 @@ const App = () => {
             }
           />
           <Route path="/about" element={<About />} />
+          <Route path="checkout" element={<PurchaseSummary 
+          itemsAddedToCartList={itemsAddedToCartList}
+          finalPriceCount={finalPriceCount} />} />
         </Routes>
       </Router>
       <Footer />

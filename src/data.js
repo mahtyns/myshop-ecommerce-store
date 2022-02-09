@@ -129,3 +129,33 @@ export const banners = [
     title: "Check Perfume on SALE",
   },
 ];
+
+//Delivery Options
+export const deliveryOptions = [
+  {
+    title: "PostService",
+    price: 2.99,
+    deliveryTimeDays: 5
+  },
+  {
+    title: "PostService 48h",
+    price: 9.99,
+    deliveryTimeDays: 2
+  },
+  {
+    title: "DPM Delivery",
+    price: 7.99,
+    deliveryTimeDays: 3
+  },
+  {
+    title: "DPM City Box",
+    price: 8.99,
+    deliveryTimeDays: 2
+  },
+  {
+    title: "In person / in store",
+    price: 0,
+    deliveryTimeDays: 3
+  },
+
+]

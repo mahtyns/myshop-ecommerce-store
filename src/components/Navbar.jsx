@@ -5,12 +5,12 @@ import Form from '../pages/Form';
 import ProductsShop from '../pages/ProductsShop';
 import { Search, ShoppingCartSharp, PersonSharp } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, UserInteractionsContainer, SearchInputWrapper, SearchInput, NavigationList, ListItem } from '../styling/navbarStyling';
 
 
 
-const Navbar = ({ itemsAddedToCartList, finalPriceCount, itemsCartNumber }) => {
+const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
     return (
         <NavbarContainer>
             <NavbarWrapper>

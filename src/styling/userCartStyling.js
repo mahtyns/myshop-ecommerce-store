@@ -21,7 +21,8 @@ margin: 10px 20px;
 display: flex;
 flex-direction: column;
 align-items: left;
-justify-content: center`;
+justify-content: center;
+`;
 
 export const CartSummaryContainer = styled.div`
 flex: 1;
@@ -58,6 +59,12 @@ padding: 10px 20px;
 margin: 20px 0;
 `;
 
+export const DeliveryOptionsSelect = styled.select`
+width: 90%;
+margin: 10px 0;
+border: none;
+`;
+
 export const SummaryBuyButton = styled.button`
 background-color: black;
 color: white;
@@ -65,12 +72,15 @@ padding: 10px 80px;
 font-size: 20px;
 border: none;
 margin: 10px 0;
+font-family: "Montserrat", sans-serif;
+cursor: pointer;
 `;
 
 export const TotalSummaryInfo = styled.p`
 font-size: 16px;
 color: gray;
-padding: 15px 25px;`;
+padding: 15px 25px;
+font-family: "Montserrat", sans-serif;`;
 
 // Container for all the products added to cart
 
