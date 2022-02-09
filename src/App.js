@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AlertInformationNavbar from "./components/AlertInformationNavbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
@@ -22,20 +22,14 @@ const App = () => {
     if (!checkIfRepeatedInCart(addedProduct.id)) {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
       setFinalPriceCount(finalPriceCount + addedProduct.price );
-     } else {
+      setItemsCartNumber(itemsCartNumber + 1);
+      } else {
       itemsAddedToCartList[addedMultipleIndex].amount += 1;
-      setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleIndex].price )
-      setItemsCartNumber(itemsCartNumber + 1)
+      setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleIndex].price );
+      setItemsCartNumber(itemsCartNumber + 1);
       }
       console.log(itemsCartNumber)
     }
-
-    // const totalAmountProductsCart = (addedProductAmount) => {
-    //   let totalCartAmount = 0;
-    //   totalCartAmount += addedProductAmount;
-    //   console.log(totalCartAmount)
-    // }
- 
 
     const checkIfRepeatedInCart = (index) => {
       let repeatedItemInCart = itemsAddedToCartList.find((product)=> product.id === index);
@@ -46,11 +40,14 @@ const App = () => {
     const newProductCartList = itemsAddedToCartList.filter(product => product.id !== addedProduct.id)
     setItemsAddedToCartList(newProductCartList);
     setFinalPriceCount(finalPriceCount - (addedProduct.price * addedProduct.amount));
+    setItemsCartNumber(itemsCartNumber - addedProduct.amount);
+
   }
 
   const addOneProductCart = (addedProduct) => {
       addedProduct.amount += 1;
-      setFinalPriceCount(finalPriceCount + addedProduct.price)
+      setFinalPriceCount(finalPriceCount + addedProduct.price);
+      setItemsCartNumber(itemsCartNumber + 1);
   }
 
   const removeOneProductCart = (addedProduct) => {
@@ -59,13 +56,15 @@ const App = () => {
     }
     addedProduct.amount -= 1;
     setFinalPriceCount(finalPriceCount - addedProduct.price)
+    setItemsCartNumber(itemsCartNumber - 1);
   }
 
   return (
     <>
       <Router>
         <Navbar itemsAddedToCartList={itemsAddedToCartList}
-        finalPriceCount = {finalPriceCount} />
+        finalPriceCount = {finalPriceCount}
+        itemsCartNumber={itemsCartNumber} />
         <AlertInformationNavbar />
         <Routes>
           <Route path="/" element={<Home />} />

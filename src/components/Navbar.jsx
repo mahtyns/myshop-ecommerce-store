@@ -10,7 +10,7 @@ import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, U
 
 
 
-const Navbar = ({ itemsAddedToCartList, finalPriceCount }) => {
+const Navbar = ({ itemsAddedToCartList, finalPriceCount, itemsCartNumber }) => {
     return (
         <NavbarContainer>
             <NavbarWrapper>
@@ -32,7 +32,7 @@ const Navbar = ({ itemsAddedToCartList, finalPriceCount }) => {
                     </SearchInputWrapper>
                     {/* Person-user Icon */}
                     <PersonSharp />
-                    <Badge badgeContent={itemsAddedToCartList.length} color="secondary" max={10} >
+                    <Badge badgeContent={itemsCartNumber} color="secondary" max={10} >
                         <Link to="/cart">
                             {/* Shopping Cart Icon */}
                             <ShoppingCartSharp />
