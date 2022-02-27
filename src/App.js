@@ -60,6 +60,13 @@ const App = () => {
     setItemsCartNumber(itemsCartNumber - 1);
   }
 
+   const [deliveryOption, setDeliveryOption] = useState([]);
+
+    const chooseDeliveryOption = (e) => {
+        setDeliveryOption(e.target)
+        console.log(e.target)
+    }
+
   return (
     <>
       <Router>
@@ -77,6 +84,7 @@ const App = () => {
               deleteItemCart={deleteItemCart}
               addOneProductCart={addOneProductCart}
               removeOneProductCart={removeOneProductCart}
+              chooseDeliveryOption={chooseDeliveryOption}
               />
             }
           />
@@ -94,7 +102,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="checkout" element={<PurchaseSummary 
           itemsAddedToCartList={itemsAddedToCartList}
-          finalPriceCount={finalPriceCount} />} />
+          finalPriceCount={finalPriceCount}
+          deliveryOption={deliveryOption} />} />
         </Routes>
       </Router>
       <Footer />

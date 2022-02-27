@@ -5,7 +5,7 @@ import ShopSummary from '../components/ShopSummary';
 import { SharedSubtitle, SharedTitle } from '../styling/sharedStyling';
 import { CartContainer, CartWrapper, CartProductContainer, CartSummaryContainer } from '../styling/userCartStyling';
 
-const Cart = ({ itemsAddedToCartList, finalPriceCount, deleteItemCart, addOneProductCart, removeOneProductCart }) => {
+const Cart = ({ itemsAddedToCartList, finalPriceCount, deleteItemCart, addOneProductCart, removeOneProductCart, chooseDeliveryOption }) => {
     return (
         <>
             <CartContainer>
@@ -15,10 +15,10 @@ const Cart = ({ itemsAddedToCartList, finalPriceCount, deleteItemCart, addOnePro
                         <ProductsCart itemsAddedToCartList={itemsAddedToCartList} deleteItemCart={deleteItemCart} addOneProductCart={addOneProductCart} removeOneProductCart={removeOneProductCart} />
                     </CartProductContainer>
                     <CartSummaryContainer>
-                        <ShopSummary finalPriceCount={finalPriceCount} />
+                        <ShopSummary finalPriceCount={finalPriceCount} chooseDeliveryOption={chooseDeliveryOption} />
                     </CartSummaryContainer>
                 </CartWrapper>
-            </CartContainer>
+            </CartContainer>chooseDeliveryOption
         </>
     )
 }

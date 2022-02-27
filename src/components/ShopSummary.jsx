@@ -1,22 +1,23 @@
-import styled from 'styled-components';
+import { useState } from "react";
 import { deliveryOptions } from '../data';
 import { SharedParagraph } from '../styling/sharedStyling';
 import { SummaryTotalContainer, PaySummary, TotalPriceSummary, DeliveryOptionsContainer, SummaryBuyButton, TotalSummaryInfo, DeliveryOptionsSelect } from '../styling/userCartStyling';
 import { Link } from "react-router-dom";
 
-const ShopSummary = ({ finalPriceCount }) => {
+const ShopSummary = ({ finalPriceCount, chooseDeliveryOption }) => {
+
     return (
         <SummaryTotalContainer>
             <PaySummary>
                 <TotalPriceSummary>Total: {finalPriceCount} €</TotalPriceSummary>
                 <TotalSummaryInfo>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio molestias corrupti numquam quisquam quae itaque harum hic temporibus quibusdam?</TotalSummaryInfo>
-                <Link to="/checkout"><SummaryBuyButton>Continue</SummaryBuyButton></Link>
+                <Link to="/checkout" ><SummaryBuyButton>Continue</SummaryBuyButton></Link>
             </PaySummary>
             <DeliveryOptionsContainer>Delivery Options
                 <SharedParagraph>Choose one delivery option from below:</SharedParagraph>
-                <DeliveryOptionsSelect>
+                <DeliveryOptionsSelect onChange={chooseDeliveryOption}>
                     {deliveryOptions.map(option =>
-                        <option value={option.title}>{option.title}, {option.price} €</option>
+                        <option key={option.id} title={option.title} value={option.price} > {option.title}, {option.price} €</option>
                     )}
                 </DeliveryOptionsSelect>
             </DeliveryOptionsContainer>

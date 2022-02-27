@@ -32,7 +32,7 @@ const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
                     </SearchInputWrapper>
                     {/* Person-user Icon */}
                     <PersonSharp />
-                    <Badge badgeContent={itemsCartNumber} color="secondary" max={10} >
+                    <Badge badgeContent={itemsCartNumber} color="secondary" max={9} >
                         <Link to="/cart">
                             {/* Shopping Cart Icon */}
                             <ShoppingCartSharp />

@@ -3,7 +3,7 @@ import { CartCheckoutContainer, PurchaseCheckoutPageContainer, TotalPriceSummary
 import { SharedSecondaryText, SharedSubtitle, SharedTitle } from '../styling/sharedStyling';
 
 
-const PurchaseSummary = ({ itemsAddedToCartList, finalPriceCount }) => {
+const PurchaseSummary = ({ itemsAddedToCartList, finalPriceCount, deliveryOption }) => {
     return (
         <PurchaseCheckoutPageContainer>
             <SharedTitle>Checkout</SharedTitle>
@@ -14,8 +14,8 @@ const PurchaseSummary = ({ itemsAddedToCartList, finalPriceCount }) => {
                             <p>{index + 1} - Product: {item.name} - Price: {item.price} € - Amount: {item.amount} - Total: {item.price * item.amount} € </p>
                         )}
                         <p>Total Price Products: {finalPriceCount} €</p>
-                        <p>Delivery type:</p>
-                        <p>Delivery price: </p>
+                        <p>Delivery type: {deliveryOption.title} </p>
+                        <p>Delivery price: {deliveryOption.price} €</p>
                         <SharedSubtitle>Final Price: </SharedSubtitle>
                     </SharedSecondaryText>
                 </TotalPriceSummaryContainer>

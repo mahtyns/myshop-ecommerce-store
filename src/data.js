@@ -132,30 +132,50 @@ export const banners = [
 
 //Delivery Options
 export const deliveryOptions = [
-  {
+  { 
+    id: 0,
     title: "PostService",
     price: 2.99,
     deliveryTimeDays: 5
   },
   {
+    id: 1,
     title: "PostService 48h",
     price: 9.99,
     deliveryTimeDays: 2
   },
   {
+    id: 2,
     title: "DPM Delivery",
     price: 7.99,
     deliveryTimeDays: 3
   },
-  {
+  { 
+    id: 3,
     title: "DPM City Box",
     price: 8.99,
     deliveryTimeDays: 2
   },
-  {
+  { 
+    id: 4,
     title: "In person / in store",
     price: 0,
     deliveryTimeDays: 3
   },
 
+]
+
+export const coupons = [
+  {
+    code: 'WELCOME10',
+    discount: 10
+  }, 
+  {
+    code: 'BACK15',
+    discount: 15,
+  },
+   {
+    code: 'SPRING20',
+    discount: 20,
+  }, 
 ]
