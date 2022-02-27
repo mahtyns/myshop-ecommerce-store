@@ -134,30 +134,35 @@ export const banners = [
 export const deliveryOptions = [
   { 
     id: 0,
+    title: "Select option",
+    price: null,
+    },
+  { 
+    id: 1,
     title: "PostService",
     price: 2.99,
     deliveryTimeDays: 5
   },
   {
-    id: 1,
+    id: 2,
     title: "PostService 48h",
     price: 9.99,
     deliveryTimeDays: 2
   },
   {
-    id: 2,
+    id: 3,
     title: "DPM Delivery",
     price: 7.99,
     deliveryTimeDays: 3
   },
   { 
-    id: 3,
+    id: 4,
     title: "DPM City Box",
     price: 8.99,
     deliveryTimeDays: 2
   },
   { 
-    id: 4,
+    id: 5,
     title: "In person / in store",
     price: 0,
     deliveryTimeDays: 3

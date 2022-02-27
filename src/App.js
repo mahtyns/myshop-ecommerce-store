@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AlertInformationNavbar from "./components/AlertInformationNavbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
@@ -24,10 +24,12 @@ const App = () => {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
       setFinalPriceCount(finalPriceCount + addedProduct.price );
       setItemsCartNumber(itemsCartNumber + 1);
+      addedProduct.stock -= 1;
       } else {
       itemsAddedToCartList[addedMultipleIndex].amount += 1;
       setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleIndex].price );
       setItemsCartNumber(itemsCartNumber + 1);
+      addedProduct.stock -= 1;
       }
       console.log(itemsCartNumber)
     }
@@ -42,6 +44,7 @@ const App = () => {
     setItemsAddedToCartList(newProductCartList);
     setFinalPriceCount(finalPriceCount - (addedProduct.price * addedProduct.amount));
     setItemsCartNumber(itemsCartNumber - addedProduct.amount);
+    addedProduct.stock += addedProduct.amount;
 
   }
 
@@ -49,7 +52,7 @@ const App = () => {
       addedProduct.amount += 1;
       setFinalPriceCount(finalPriceCount + addedProduct.price);
       setItemsCartNumber(itemsCartNumber + 1);
-  }
+   }
 
   const removeOneProductCart = (addedProduct) => {
     if (addedProduct.amount === 1) {
@@ -60,12 +63,11 @@ const App = () => {
     setItemsCartNumber(itemsCartNumber - 1);
   }
 
-   const [deliveryOption, setDeliveryOption] = useState([]);
+   const [deliveryOptionId, setDeliveryOptionId] = useState({});
 
     const chooseDeliveryOption = (e) => {
-        setDeliveryOption(e.target)
-        console.log(e.target)
-    }
+        setDeliveryOptionId(e.target.value); 
+     }
 
   return (
     <>
@@ -103,7 +105,7 @@ const App = () => {
           <Route path="checkout" element={<PurchaseSummary 
           itemsAddedToCartList={itemsAddedToCartList}
           finalPriceCount={finalPriceCount}
-          deliveryOption={deliveryOption} />} />
+          deliveryOptionId={deliveryOptionId} />} />
         </Routes>
       </Router>
       <Footer />

@@ -14,11 +14,11 @@ const Product = ({ product, availableStock, ...props }) => {
                 <ProductPrice>{product.price}€</ProductPrice>
                 <ProductDescr>{product.text}</ProductDescr>
                 {/* {stock ? <Stock>Left: {stock}</Stock> : null} */}
-                <ProductStock>Left: {product.stock}</ProductStock>
+                <ProductStock>{product.stock ? 'Left: ' + product.stock : "No stock"}</ProductStock>
             </ProductInfo>
 
             {/* {stock ? ButtonContainer : null} */}
-            {ButtonContainer}
+            {product.stock ? ButtonContainer : null}
         </ProductItemContainer>
     )
 }

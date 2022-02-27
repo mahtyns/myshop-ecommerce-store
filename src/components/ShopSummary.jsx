@@ -17,7 +17,7 @@ const ShopSummary = ({ finalPriceCount, chooseDeliveryOption }) => {
                 <SharedParagraph>Choose one delivery option from below:</SharedParagraph>
                 <DeliveryOptionsSelect onChange={chooseDeliveryOption}>
                     {deliveryOptions.map(option =>
-                        <option key={option.id} title={option.title} value={option.price} > {option.title}, {option.price} €</option>
+                        <option value={option.id} > {option.title}, {option.price} €</option>
                     )}
                 </DeliveryOptionsSelect>
             </DeliveryOptionsContainer>

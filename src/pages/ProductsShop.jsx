@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Products from "../components/Products";
 import { ProductShopContainer } from '../styling/productShopStyling';
 import { SharedParagraph, SharedTitle } from '../styling/sharedStyling';

@@ -1,25 +1,30 @@
 import React from 'react';
-import { CartCheckoutContainer, PurchaseCheckoutPageContainer, TotalPriceSummaryContainer, ConfirmPurchaseContainer } from '../styling/purchaseSummaryStyling';
+import PurchaseDataInput from '../components/PurchaseDataInput';
+import { deliveryOptions } from '../data';
+import { CartCheckoutContainer, PurchaseCheckoutPageContainer, TotalPriceSummaryContainer, ConfirmPurchaseContainer, PurchaseItemsList } from '../styling/purchaseSummaryStyling';
 import { SharedSecondaryText, SharedSubtitle, SharedTitle } from '../styling/sharedStyling';
 
 
-const PurchaseSummary = ({ itemsAddedToCartList, finalPriceCount, deliveryOption }) => {
+
+const PurchaseSummary = ({ itemsAddedToCartList, finalPriceCount, deliveryOptionId }) => {
     return (
         <PurchaseCheckoutPageContainer>
             <SharedTitle>Checkout</SharedTitle>
             <CartCheckoutContainer>
                 <TotalPriceSummaryContainer>
                     <SharedSecondaryText>
-                        {itemsAddedToCartList.map((item, index) =>
-                            <p>{index + 1} - Product: {item.name} - Price: {item.price} € - Amount: {item.amount} - Total: {item.price * item.amount} € </p>
+                        {(itemsAddedToCartList.map((item, index) =>
+                            <PurchaseItemsList>{index + 1} - Product: {item.name} - Price: {item.price} € - Amount: {item.amount} - Total: {item.price * item.amount} € </PurchaseItemsList>)
                         )}
-                        <p>Total Price Products: {finalPriceCount} €</p>
-                        <p>Delivery type: {deliveryOption.title} </p>
-                        <p>Delivery price: {deliveryOption.price} €</p>
-                        <SharedSubtitle>Final Price: </SharedSubtitle>
+                        <SharedSecondaryText>Total Price Products: {itemsAddedToCartList.length ? finalPriceCount + "€" : "No products added yet"} </SharedSecondaryText>
+                        <PurchaseItemsList>Delivery type: {deliveryOptionId ? deliveryOptions[deliveryOptionId].title : "Choose delivery option first"} </PurchaseItemsList>
+                        <PurchaseItemsList>Delivery price: {deliveryOptionId ? deliveryOptions[deliveryOptionId].price + "€" : "Choose delivery option first"} </PurchaseItemsList>
+                        <SharedSubtitle>Final Price: {finalPriceCount + deliveryOptions[deliveryOptionId].price}€</SharedSubtitle>
                     </SharedSecondaryText>
                 </TotalPriceSummaryContainer>
-                <ConfirmPurchaseContainer></ConfirmPurchaseContainer>
+                <ConfirmPurchaseContainer>
+                    <PurchaseDataInput />
+                </ConfirmPurchaseContainer>
             </CartCheckoutContainer>
         </PurchaseCheckoutPageContainer>
     );

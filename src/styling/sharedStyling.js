@@ -10,6 +10,7 @@ margin: 10px 0px;
 export const SharedSubtitle = styled.div`
 font-size:40px;
 text-align: left;
+padding: 10px;
 margin: 10px 0px;
 `;
 
@@ -25,3 +26,12 @@ export const SharedSecondaryText = styled.div`
 text-align: left;
 padding: 10px 15px;
 font-size: 20px`;
+
+export const SharedCTAButton = styled.button`
+padding: 15px 35px;
+background-color: black;
+color: white;
+border: none;
+text-transform: uppercase;
+margin: 25px 0
+`
