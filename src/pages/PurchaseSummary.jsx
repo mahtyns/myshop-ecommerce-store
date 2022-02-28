@@ -7,6 +7,7 @@ import { SharedSecondaryText, SharedSubtitle, SharedTitle } from '../styling/sha
 
 
 const PurchaseSummary = ({ itemsAddedToCartList, finalPriceCount, deliveryOptionId }) => {
+
     return (
         <PurchaseCheckoutPageContainer>
             <SharedTitle>Checkout</SharedTitle>

@@ -10,6 +10,8 @@ import Footer from "./components/Footer";
 import { Routes, Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
 import PurchaseSummary from "./pages/PurchaseSummary";
+import { products } from '../src/data';
+
 
 const App = () => {
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
@@ -19,7 +21,7 @@ const App = () => {
 
   const addItemToCart = (addedProduct) => {
     let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
-    let newProductInCart = {name: addedProduct.name, id: addedProduct.id, price: addedProduct.price, amount: 1};
+    let newProductInCart = {name: addedProduct.name, id: addedProduct.id, price: addedProduct.price, amount: 1, stock: addedProduct.stock};
     if (!checkIfRepeatedInCart(addedProduct.id)) {
       setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
       setFinalPriceCount(finalPriceCount + addedProduct.price );
@@ -44,14 +46,15 @@ const App = () => {
     setItemsAddedToCartList(newProductCartList);
     setFinalPriceCount(finalPriceCount - (addedProduct.price * addedProduct.amount));
     setItemsCartNumber(itemsCartNumber - addedProduct.amount);
-    addedProduct.stock += addedProduct.amount;
-
+    products[addedProduct.id].stock += addedProduct.amount
   }
 
   const addOneProductCart = (addedProduct) => {
       addedProduct.amount += 1;
+      products[addedProduct.id].stock -= 1;
       setFinalPriceCount(finalPriceCount + addedProduct.price);
       setItemsCartNumber(itemsCartNumber + 1);
+
    }
 
   const removeOneProductCart = (addedProduct) => {
@@ -61,6 +64,7 @@ const App = () => {
     addedProduct.amount -= 1;
     setFinalPriceCount(finalPriceCount - addedProduct.price)
     setItemsCartNumber(itemsCartNumber - 1);
+    products[addedProduct.id].stock += 1;
   }
 
    const [deliveryOptionId, setDeliveryOptionId] = useState({});
