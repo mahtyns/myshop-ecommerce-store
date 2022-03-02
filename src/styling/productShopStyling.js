@@ -85,4 +85,8 @@ display: flex;
 flex-direction: row;
 justify-content: flex-end;`;
 
-export const SearchFilterWrapper = styled.div``;
+export const SearchFilterWrapper = styled.div`
+width: 20%;
+display: flex;
+flex-direction: row;
+justify-content: space-between`;
