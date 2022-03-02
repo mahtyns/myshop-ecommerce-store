@@ -1,7 +1,7 @@
 import React from 'react'
 import { SearchFilterProductContainer, SearchFilterWrapper, SearchProductInput, SortProductDropdown } from '../styling/productShopStyling'
 
-const SearchFilterProductBar = ({ handleChangeSearch, handleSortingOptions }) => {
+const SearchFilterProductBar = ({ handleChangeSearch, handleSortingOptions, resetAllFilters }) => {
     return (
         <SearchFilterProductContainer>
             <SearchFilterWrapper>
@@ -12,7 +12,7 @@ const SearchFilterProductBar = ({ handleChangeSearch, handleSortingOptions }) =>
                     <option value="price">Price</option>
                 </SortProductDropdown>
                 <p>Filter</p>
-                <p>Reset</p>
+                <p onCLick={resetAllFilters}>Reset</p>
             </SearchFilterWrapper>
         </SearchFilterProductContainer>
     )
