@@ -76,3 +76,13 @@ export const ProductStock = styled.p`
   font-size: 14px;
   margin: 10px 0 0 0;
 `;
+
+
+// Styling for search and filter bar
+export const SearchFilterProductContainer = styled.div`
+width: 90%;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;`;
+
+export const SearchFilterWrapper = styled.div``;

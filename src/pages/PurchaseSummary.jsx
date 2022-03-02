@@ -1,7 +1,7 @@
 import React from 'react';
 import PurchaseDataInput from '../components/PurchaseDataInput';
 import { deliveryOptions } from '../data';
-import { CartCheckoutContainer, PurchaseCheckoutPageContainer, TotalPriceSummaryContainer, ConfirmPurchaseContainer, PurchaseItemsList } from '../styling/purchaseSummaryStyling';
+import { CartCheckoutContainer, PurchaseCheckoutPageContainer, TotalPriceSummaryContainer, ConfirmPurchaseContainer, PurchaseItemsList, PurchaseUserDataLabel } from '../styling/purchaseSummaryStyling';
 import { SharedSecondaryText, SharedSubtitle, SharedTitle } from '../styling/sharedStyling';
 
 

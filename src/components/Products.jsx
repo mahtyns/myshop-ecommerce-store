@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import ProductItem from './ProductItem';
-import styled from 'styled-components';
 import { products } from '../data';
 import { ProductsContainer } from '../styling/productShopStyling';
 
