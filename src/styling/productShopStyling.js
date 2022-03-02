@@ -86,7 +86,29 @@ flex-direction: row;
 justify-content: flex-end;`;
 
 export const SearchFilterWrapper = styled.div`
-width: 20%;
+width: 40%;
 display: flex;
 flex-direction: row;
-justify-content: space-between`;
+justify-content: space-evenly;
+`;
+
+export const SearchProductInput = styled.input`
+background: transparent;
+border: 1px solid rgba(0,0,0,0.4);
+border-radius: 3px;
+width: 300px;
+height: 30px;
+ &:focus {
+    outline: none;
+  }`;
+
+  
+export const SortProductDropdown = styled.select`
+background: transparent;
+border: 1px solid rgba(0,0,0,0.4);
+border-radius: 3px;
+width: 200px;
+height: 30px;
+ &:focus {
+    outline: none;
+  }`;

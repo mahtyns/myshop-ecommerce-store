@@ -11,7 +11,8 @@ const Products = ({ addItemToCart, availableStock, searchTerm }) => {
             {products.filter((product) => {
                 if (searchTerm === '')
                     return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
-                else if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
+                else if (product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+                    return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
             }).map((product, index) => (
                 <ProductItem product={product} index={index} addItemToCart={addItemToCart} availableStock={availableStock} />
             ))}

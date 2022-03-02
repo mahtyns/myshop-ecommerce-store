@@ -1,17 +1,18 @@
 import React from 'react'
-import { SearchFilterProductContainer, SearchFilterWrapper } from '../styling/productShopStyling'
+import { SearchFilterProductContainer, SearchFilterWrapper, SearchProductInput, SortProductDropdown } from '../styling/productShopStyling'
 
-const SearchFilterProductBar = ({ handleChangeSearch }) => {
+const SearchFilterProductBar = ({ handleChangeSearch, handleSortingOptions }) => {
     return (
         <SearchFilterProductContainer>
             <SearchFilterWrapper>
-                <input placeholder='Search...' type="text" onChange={handleChangeSearch} />
-                <p> Sort by: </p>
-                <select>
-                    <option>Price</option>
-                    <option>Name</option>
-                </select>
+                <SearchProductInput placeholder='Search...' type="text" onChange={handleChangeSearch} />
+                <SortProductDropdown onChange={handleSortingOptions}>
+                    <option>Sort By:</option>
+                    <option value="name">Name</option>
+                    <option value="price">Price</option>
+                </SortProductDropdown>
                 <p>Filter</p>
+                <p>Reset</p>
             </SearchFilterWrapper>
         </SearchFilterProductContainer>
     )
