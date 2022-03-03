@@ -28,7 +28,7 @@ const ProductsShop = ({ itemsAddedToCartList, addItemToCart, availableStock }) =
     }
 
     const resetAllFilters = () => {
-        setSortingOptionList("");
+        setSortingOptionList('');
     }
 
     return (

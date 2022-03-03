@@ -21,9 +21,11 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## WIP
-- Search Product & Filter Options
+- Search Product ✅, Sort ✅ & Filter Options
 - Send Email after purchase
 - Discount coupons
+- Product Page
+- Mobile Version
 
 ## Structure
 

@@ -101,7 +101,6 @@ const App = () => {
               <ProductsShop
                 itemsAddedToCartList={itemsAddedToCartList}
                 addItemToCart={addItemToCart}
-                // availableStock={availableStock}
               />
             }
           />

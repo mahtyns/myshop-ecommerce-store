@@ -12,7 +12,7 @@ const SearchFilterProductBar = ({ handleChangeSearch, handleSortingOptions, rese
                     <option value="price">Price</option>
                 </SortProductDropdown>
                 <p>Filter</p>
-                <p onCLick={resetAllFilters}>Reset</p>
+                <button onClick={resetAllFilters}>Reset all filters</button>
             </SearchFilterWrapper>
         </SearchFilterProductContainer>
     )
