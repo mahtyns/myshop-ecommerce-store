@@ -1,35 +1,46 @@
 import React, { useState } from 'react'
 import Products from "../components/Products";
-import styled from 'styled-components';
-import { products } from '../data';
-
-const Container = styled.div`
-width: 100%`;
+import SearchFilterProductBar from '../components/SearchFilterProductBar';
+import { ProductShopContainer } from '../styling/productShopStyling';
+import { SharedParagraph, SharedTitle } from '../styling/sharedStyling';
 
 
+const ProductsShop = ({ itemsAddedToCartList, addItemToCart, availableStock }) => {
+    const [searchTerm, setSearchTerm] = useState('')
+    const [sortingOptionList, setSortingOptionList] = useState("");
 
-const ProductsShop = ({cart, addCart}) => {
+    // Choose the sorting option from the dropdown list
+    const handleSortingOptions = (event) => {
+        if (event.target.value === "name") {
+            setSortingOptionList("name");
+        }
+        else if (event.target.value === "price") {
+            setSortingOptionList("price")
+        }
+        else {
+            setSortingOptionList("");
+        }
+    }
 
-//    const [cart, setCart] = useState([]);
+    // Search product by typing name
+    const handleChangeSearch = (event) => {
+        setSearchTerm(event.target.value)
+    }
 
-//     const addCart = (event) => {
-//          const id = event.target.id;
-//          setCart(cart.concat(id));
-        
-//     }
-
-//     const showCart = () => {
-//         console.log(cart);
-//         console.log(cart.length);
-
-//     }
-    
+    const resetAllFilters = () => {
+        setSortingOptionList('');
+    }
 
     return (
-        <Container>
-            <Products cart={cart} addCart={addCart}  />
-           
-        </Container>
+        <>
+            <SharedTitle>Shop our products</SharedTitle>
+            <SharedParagraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus asperiores placeat laborum culpa tempore, optio rerum molestias! Accusantium, dolor tempore.
+            </SharedParagraph>
+            <SearchFilterProductBar handleChangeSearch={handleChangeSearch} handleSortingOptions={handleSortingOptions} resetAllFilters={resetAllFilters} />
+            <ProductShopContainer>
+                <Products itemsAddedToCartList={itemsAddedToCartList} addItemToCart={addItemToCart} availableStock={availableStock} searchTerm={searchTerm} sortingOptionList={sortingOptionList} />
+            </ProductShopContainer>
+        </>
     )
 }
 

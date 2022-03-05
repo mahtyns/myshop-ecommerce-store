@@ -20,6 +20,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+## WIP
+- Search Product ✅, Sort ✅ & Filter Options
+- Send Email after purchase
+- Discount coupons
+- Product Page
+- Mobile Version
+
 ## Structure
 
 ### Home Page
@@ -44,6 +51,9 @@ Subpage for products added to cart by the user.
 - Styled Components - CSS styling inside each component - see more - [Link](https://styled-components.com)
 - MUI for React - Icons and other UI elements - see more - [Link](https://mui.com)
 
+## Resources
+
+- Pictures - free stock from [Unsplash](https://unsplash.com)
 <!-- ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

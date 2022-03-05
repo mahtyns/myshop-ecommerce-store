@@ -1,54 +1,27 @@
-import styled from 'styled-components';
+import { useState } from "react";
+import { deliveryOptions } from '../data';
+import { SharedParagraph } from '../styling/sharedStyling';
+import { SummaryTotalContainer, PaySummary, TotalPriceSummary, DeliveryOptionsContainer, SummaryBuyButton, TotalSummaryInfo, DeliveryOptionsSelect } from '../styling/userCartStyling';
+import { Link } from "react-router-dom";
 
-const Container = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-`;
-const Pay = styled.div`
-background-color: #f7ede2;
-width: 100%;
-text-align: center;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center`;
-const Delivery = styled.div`
-background-color: #f7ede2;
-width: 100%;
-padding: 10px 20px;
-margin: 30px 0;
-`;
+const ShopSummary = ({ finalPriceCount, chooseDeliveryOption }) => {
 
-const Button = styled.button`
-background-color: black;
-color: white;
-padding: 10px 80px;
-font-size: 20px;
-border: none;
-margin: 10px 0;
-`;
-
-const Info = styled.p`
-font-size: 16px;
-color: gray;
-padding: 15px 25px;`;
-
-const Total = styled.h1`
-font-size: 28px;
-margin: 15px 0`;
-
-const ShopSummary = () => {
     return (
-        <Container>
-            <Pay>
-                <Total>Total: 0€</Total>
-                <Info>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio molestias corrupti numquam quisquam quae itaque harum hic temporibus quibusdam?</Info>
-                <Button>Continue</Button>
-            </Pay>
-            <Delivery>Delivery Options</Delivery>
-        </Container>
+        <SummaryTotalContainer>
+            <PaySummary>
+                <TotalPriceSummary>Total: {finalPriceCount} €</TotalPriceSummary>
+                <TotalSummaryInfo>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius optio molestias corrupti numquam quisquam quae itaque harum hic temporibus quibusdam?</TotalSummaryInfo>
+                <Link to="/checkout" ><SummaryBuyButton>Continue</SummaryBuyButton></Link>
+            </PaySummary>
+            <DeliveryOptionsContainer>Delivery Options
+                <SharedParagraph>Choose one delivery option from below:</SharedParagraph>
+                <DeliveryOptionsSelect onChange={chooseDeliveryOption}>
+                    {deliveryOptions.map(option =>
+                        <option value={option.id} > {option.title}, {option.price} €</option>
+                    )}
+                </DeliveryOptionsSelect>
+            </DeliveryOptionsContainer>
+        </SummaryTotalContainer >
     )
 }
 

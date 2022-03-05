@@ -1,52 +1,58 @@
-import React, {useState} from 'react'
-
+import React, { useState } from 'react'
 import ProductItem from './ProductItem';
-
-import styled from 'styled-components';
 import { products } from '../data';
+import { ProductsContainer } from '../styling/productShopStyling';
 
+const Products = ({ addItemToCart, availableStock, searchTerm, sortingOptionList }) => {
 
-const Container = styled.div`
-height: auto;
-width: 100%;
-display: flex;
-padding: 30px;
-justify-content: space-evenly;
-text-align: center;
-flex-wrap: wrap`;
+    const productListUnsorted = products.slice();
 
+    // Sorting options for the products
+    if (sortingOptionList === "name") {
+        const sortingByName = products.sort((prod1, prod2) => (prod1.name > prod2.name) ? 1 : -1)
+        return (
+            <ProductsContainer>
+                {sortingByName.filter((product) => {
+                    // Search by introducing the word in the input field
+                    if (searchTerm === '')
+                        return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
+                    else if (product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+                        return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
+                }).map((product, index) => <ProductItem product={product} index={index} addItemToCart={addItemToCart} availableStock={availableStock} />)}
+            </ProductsContainer>
+        )
+    }
 
+    else if (sortingOptionList === "price") {
+        const sortingByPrice = products.sort((prod1, prod2) => (prod1.price > prod2.price) ? 1 : -1)
+        return (
+            <ProductsContainer>
+                {sortingByPrice.filter((product) => {
+                    if (searchTerm === '')
+                        return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
+                    else if (product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+                        return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
+                }).map((product, index) => <ProductItem product={product} index={index} addItemToCart={addItemToCart} availableStock={availableStock} />)}
+            </ProductsContainer>
+        )
 
+    }
 
-const Products = ({cart, addCart}) => {
-
-    // const [cart, setCart] = useState([]);
-
-    // const addCart = (event) => {
-    //      const id = event.target.id;
-    //      setCart(cart.concat(id));
-        
-    // }
-
-    // const showCart = () => {
-    //     console.log(cart);
-    //     console.log(cart.length);
-
-    // }
-
-    return (
-        <Container >
-            
-              {products.map((product, index )=>(
-                <>
-                
-                <ProductItem product={product} index={index} addCart={addCart}   />
-                </>
-            ))}
-       
-        </Container>
-
-    )
+    else {
+        return (
+            <ProductsContainer >
+                {/* Map to create container for each product from the products array in data.js file */}
+                {productListUnsorted.filter((product) => {
+                    if (searchTerm === '')
+                        return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
+                    else if (product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+                        return <ProductItem product={product} addItemToCart={addItemToCart} availableStock={availableStock} />
+                }).map((product, index) => (
+                    <ProductItem product={product} index={index} addItemToCart={addItemToCart} availableStock={availableStock} />
+                ))}
+            </ProductsContainer>
+        )
+    }
 }
 
 export default Products

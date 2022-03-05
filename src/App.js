@@ -1,50 +1,97 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import AlertInformationNavbar from "./components/AlertInformationNavbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Form from "./pages/Form";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
-import Alert from "./components/Alert";
 import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
-
-import { Routes } from "react-router";
-import { Route } from "react-router";
+import { Routes, Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
+import PurchaseSummary from "./pages/PurchaseSummary";
+import { products } from '../src/data';
 
-import { products } from "./data";
 
 const App = () => {
-  const [cart, setCart] = useState([]);
-  const [stock, setStock] = useState(products.stock);
+  const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
+  const [finalPriceCount, setFinalPriceCount] = useState(0);
+  const [itemsCartNumber, setItemsCartNumber] = useState(0);
 
-  const addCart = (event) => {
-    const id = event.target.id;
-    setCart(cart.concat(id));
-    setStock(stock - 1);
-  };
 
-  const showCart = () => {
-    console.log(cart);
-    console.log(cart.length);
-  };
+  const addItemToCart = (addedProduct) => {
+    let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
+    let newProductInCart = {name: addedProduct.name, id: addedProduct.id, price: addedProduct.price, amount: 1, stock: addedProduct.stock};
+    if (!checkIfRepeatedInCart(addedProduct.id)) {
+      setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
+      setFinalPriceCount(finalPriceCount + addedProduct.price );
+      setItemsCartNumber(itemsCartNumber + 1);
+      addedProduct.stock -= 1;
+      } else {
+      itemsAddedToCartList[addedMultipleIndex].amount += 1;
+      setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleIndex].price );
+      setItemsCartNumber(itemsCartNumber + 1);
+      addedProduct.stock -= 1;
+      }
+      console.log(itemsCartNumber)
+    }
 
-  const deleteCart = () => {
-    console.log("oki");
-  };
+    const checkIfRepeatedInCart = (index) => {
+      let repeatedItemInCart = itemsAddedToCartList.find((product)=> product.id === index);
+      return repeatedItemInCart;
+    }   
+
+  const deleteItemCart = (addedProduct) => {
+    const newProductCartList = itemsAddedToCartList.filter(product => product.id !== addedProduct.id)
+    setItemsAddedToCartList(newProductCartList);
+    setFinalPriceCount(finalPriceCount - (addedProduct.price * addedProduct.amount));
+    setItemsCartNumber(itemsCartNumber - addedProduct.amount);
+    products[addedProduct.id].stock += addedProduct.amount
+  }
+
+  const addOneProductCart = (addedProduct) => {
+      addedProduct.amount += 1;
+      products[addedProduct.id].stock -= 1;
+      setFinalPriceCount(finalPriceCount + addedProduct.price);
+      setItemsCartNumber(itemsCartNumber + 1);
+
+   }
+
+  const removeOneProductCart = (addedProduct) => {
+    if (addedProduct.amount === 1) {
+      deleteItemCart(addedProduct);
+    }
+    addedProduct.amount -= 1;
+    setFinalPriceCount(finalPriceCount - addedProduct.price)
+    setItemsCartNumber(itemsCartNumber - 1);
+    products[addedProduct.id].stock += 1;
+  }
+
+   const [deliveryOptionId, setDeliveryOptionId] = useState({});
+
+    const chooseDeliveryOption = (e) => {
+        setDeliveryOptionId(e.target.value); 
+     }
 
   return (
     <>
-      <Router>
-        <Navbar cart={cart} />
-        <Alert />
+      <Router basename={process.env.PUBLIC_URL}>
+        <Navbar itemsAddedToCartList={itemsAddedToCartList}
+        finalPriceCount = {finalPriceCount}
+        itemsCartNumber={itemsCartNumber} />
+        <AlertInformationNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
             path="/cart"
             element={
-              <Cart cart={cart} showCart={showCart} deleteCart={deleteCart} />
+              <Cart itemsAddedToCartList={itemsAddedToCartList}
+              finalPriceCount={finalPriceCount}
+              deleteItemCart={deleteItemCart}
+              addOneProductCart={addOneProductCart}
+              removeOneProductCart={removeOneProductCart}
+              chooseDeliveryOption={chooseDeliveryOption}
+              />
             }
           />
           <Route path="/contact" element={<Form />} />
@@ -52,14 +99,16 @@ const App = () => {
             path="/products"
             element={
               <ProductsShop
-                cart={cart}
-                addCart={addCart}
-                showCart={showCart}
-                stock={stock}
+                itemsAddedToCartList={itemsAddedToCartList}
+                addItemToCart={addItemToCart}
               />
             }
           />
           <Route path="/about" element={<About />} />
+          <Route path="/checkout" element={<PurchaseSummary 
+          itemsAddedToCartList={itemsAddedToCartList}
+          finalPriceCount={finalPriceCount}
+          deliveryOptionId={deliveryOptionId} />} />
         </Routes>
       </Router>
       <Footer />

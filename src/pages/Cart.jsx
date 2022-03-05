@@ -1,52 +1,23 @@
 import React from 'react'
-import Navbar from '../components/Navbar';
-import styled from 'styled-components'
-import Alert from '../components/Alert';
-import Footer from '../components/Footer';
 import ProductsCart from '../components/ProductsCart';
 import ShopSummary from '../components/ShopSummary';
+import { SharedTitle } from '../styling/sharedStyling';
+import { CartContainer, CartWrapper, CartProductContainer, CartSummaryContainer } from '../styling/userCartStyling';
 
-const Wrapper = styled.div`
-height: 90vh;
-padding: 40px;
-`;
-const Title = styled.div`
-font-size:60px;
-text-align: center
-`;
-
-const CartContainer = styled.div`
-display: flex;
-flex-direction: row;
-`;
-
-const ProductContainer = styled.div`
-height: 400px;
-flex: 3;
-margin: 10px 20px`;
-
-const Summary = styled.div`
-flex: 1;
-
-margin: 10px 20px`;
-
-const Cart = ({cart, showCart, deleteCart}) => {
+const Cart = ({ itemsAddedToCartList, finalPriceCount, deleteItemCart, addOneProductCart, removeOneProductCart, chooseDeliveryOption }) => {
     return (
         <>
-     
-        <Wrapper>
-            <Title>Your Cart</Title>
             <CartContainer>
-            <ProductContainer>
-                <ProductsCart cart={cart} showCart={showCart} deleteCart={deleteCart}/>
-            </ProductContainer>
-            <Summary>
-                <ShopSummary/>
-            </Summary>
+                <SharedTitle>Your Cart Summary</SharedTitle>
+                <CartWrapper>
+                    <CartProductContainer>
+                        <ProductsCart itemsAddedToCartList={itemsAddedToCartList} deleteItemCart={deleteItemCart} addOneProductCart={addOneProductCart} removeOneProductCart={removeOneProductCart} />
+                    </CartProductContainer>
+                    <CartSummaryContainer>
+                        <ShopSummary finalPriceCount={finalPriceCount} chooseDeliveryOption={chooseDeliveryOption} />
+                    </CartSummaryContainer>
+                </CartWrapper>
             </CartContainer>
-
-        </Wrapper>
-     
         </>
     )
 }
