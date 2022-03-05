@@ -4,7 +4,7 @@ import { FooterContainer, FooterWrapper } from '../styling/footerStyling';
 const Footer = () => {
     return (
         <FooterContainer>
-            <FooterWrapper>Terms</FooterWrapper>
+            <FooterWrapper>Coded by Martyna - 2021/2022</FooterWrapper>
         </FooterContainer>
     )
 }
