@@ -19,7 +19,8 @@
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2",
-    "homepage": "https://mahtyns.github.io/myshoprep"
+    "homepage": "https://mahtyns.github.io/",
+    "name": "myshoprep"
   },
   "scripts": {
     "start": "react-scripts start",
