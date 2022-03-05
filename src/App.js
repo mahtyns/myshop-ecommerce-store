@@ -81,9 +81,9 @@ const App = () => {
         itemsCartNumber={itemsCartNumber} />
         <AlertInformationNavbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/myshoprep/" element={<Home />} />
           <Route
-            path="/cart"
+            path="/myshoprep/cart"
             element={
               <Cart itemsAddedToCartList={itemsAddedToCartList}
               finalPriceCount={finalPriceCount}
