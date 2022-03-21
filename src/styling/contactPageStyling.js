@@ -8,4 +8,6 @@ flex-direction: column;
 
 export const ContactPageMap = styled.div`
 flex: 1;
-text-align: center`;
+text-align: center;
+width: 800px;
+height: 400px`;

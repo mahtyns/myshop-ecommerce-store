@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { ContactPageContainer, ContactPageMap } from '../styling/contactPageStyling';
-import { SharedSubtitle, SharedTitle } from '../styling/sharedStyling';
+import { SharedCTAButton, SharedSubtitle, SharedTitle } from '../styling/sharedStyling';
 
 const HeadLine = styled.h1`
 font-size:60px;
@@ -78,7 +78,7 @@ const Forms = () => {
 
                 </InfoItems>
                 <ContactPageMap>
-                    <iframe src={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.4692896589245!2d-3.6879925779192337!3d40.41521993201166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228a007be2e9b%3A0x79abeb55cc8dfa59!2sPalacio%20de%20Cristal!5e0!3m2!1sen!2ses!4v1646502283783!5m2!1sen!2ses'} allowfullscreen="" loading="lazy" width={800} height={400}></iframe>
+                    <iframe src={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.4692896589245!2d-3.6879925779192337!3d40.41521993201166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228a007be2e9b%3A0x79abeb55cc8dfa59!2sPalacio%20de%20Cristal!5e0!3m2!1sen!2ses!4v1646502283783!5m2!1sen!2ses'} allowfullscreen="" width={800} height={300} loading="lazy" ></iframe>
                 </ContactPageMap>
             </InfoList>
             <SharedSubtitle>Any questions?</SharedSubtitle>
@@ -100,11 +100,12 @@ const Forms = () => {
 
             </FormContainer>
             <div>
-                <Button onClick={handleSubmit}>Send message</Button>
+                <SharedCTAButton onClick={handleSubmit}>Send message</SharedCTAButton>
             </div>
 
         </ContactPageContainer>
     )
 }
+
 
 export default Forms

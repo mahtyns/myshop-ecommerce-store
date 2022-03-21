@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { FooterContainer, FooterWrapper } from '../styling/footerStyling';
 
 const Footer = () => {
