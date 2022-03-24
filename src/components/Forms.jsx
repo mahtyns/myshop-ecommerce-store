@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
 import { ContactPageContainer, ContactPageMap, BrandInformationGeneralContainer, BrandContactDetailList, BrandContactDetailListItem, UserMessageContactFormContainer, UserMessageContactForm, UserMessageContactFormInput, UserMessageContactFormLabel } from '../styling/contactPageStyling';
-import { SharedCTAButton, SharedSubtitle, SharedTitle } from '../styling/sharedStyling';
+import { SharedCTAButton, SharedTitle } from '../styling/sharedStyling';
 
 const Forms = () => {
 
