@@ -33,5 +33,7 @@ background-color: black;
 color: white;
 border: none;
 text-transform: uppercase;
-margin: 25px 0
+margin: 25px 0;
+cursor: pointer;
+font-family: "Montserrat", sans-serif;
 `

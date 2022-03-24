@@ -12,7 +12,7 @@ text-align: center;
 width: 800px;
 height: 400px`;
 
-export const BrandInformationList = styled.div`
+export const BrandInformationGeneralContainer = styled.div`
 display: flex;
 flex-direction: row;
 padding: 30px 50px;`;
@@ -22,7 +22,8 @@ flex: 1;`;
 
 export const BrandContactDetailListItem = styled.div`
 font-size: 18px;
-padding: 15px 0`;
+padding: 15px 0;
+font-family: "Montserrat", sans-serif;`;
 
 export const UserMessageContactFormContainer = styled.div`
 display: flex;
@@ -37,5 +38,13 @@ display: flex;
 flex-direction: column;
 flex: 1`;
 
+export const UserMessageContactFormLabel= styled.label`
+ line-height: 30px;
+  font-family: "Montserrat", sans-serif;
+`;
+
 export const UserMessageContactFormInput = styled.input`
 width: 40%`;
+
+export const ContactPageFormWrapper = styled.div`
+height: auto;`;

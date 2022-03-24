@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-
 import { products } from '../data';
 import { SingleItemAddedContainer, AddedToCartImage, AddedToCartInformation, CartProductAuxiliaryText, CartProductName, CartProductPrice, AddRemoveCartProductButton } from '../styling/userCartStyling';
 import { Delete, Add, Remove } from '@material-ui/icons';

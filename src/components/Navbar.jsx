@@ -1,10 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import { Search, ShoppingCartSharp, PersonSharp } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, UserInteractionsContainer, SearchInputWrapper, SearchInput, NavigationList, ListItem } from '../styling/navbarStyling';
-
-
 
 const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
     return (
@@ -17,9 +16,7 @@ const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
                         <ListItem ><Link to="/contact">Contact</Link></ListItem>
                     </NavigationList>
                 </NavigationLinksContainer>
-
                 <NavbarLogo><Link to="/">MyShop</Link></NavbarLogo>
-
                 <UserInteractionsContainer>
                     <SearchInputWrapper>
                         <SearchInput />
@@ -39,6 +36,11 @@ const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
             </NavbarWrapper>
         </NavbarContainer>
     )
+}
+
+Navbar.propTypes = {
+    finalPriceCount: PropTypes.number,
+    itemsCartNumber: PropTypes.number
 }
 
 export default Navbar
