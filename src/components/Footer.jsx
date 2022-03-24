@@ -1,3 +1,4 @@
+import React from 'react';
 import { FooterContainer, FooterWrapper } from '../styling/footerStyling';
 
 const Footer = () => {
