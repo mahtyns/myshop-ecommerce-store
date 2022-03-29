@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useState } from 'react';
 import { ContactPageContainer, ContactPageMap, BrandInformationGeneralContainer, BrandContactDetailList, BrandContactDetailListItem, UserMessageContactFormContainer, UserMessageContactForm, UserMessageContactFormInput, UserMessageContactFormLabel } from '../styling/contactPageStyling';
 import { SharedCTAButton, SharedTitle } from '../styling/sharedStyling';
@@ -14,14 +13,8 @@ const Forms = () => {
         msg: ''
     })
 
-    const [name, setName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [mail, setMail] = useState("");
-    const [tel, setTel] = useState(0);
-    const [msg, setMsg] = useState("")
-
-    const handleSubmit = () => {
-        console.log(`${name} ${surname} ${mail} ${tel} ${msg}`);
+      const handleSubmit = () => {
+        console.log(``);
     }
 
 
@@ -43,15 +36,15 @@ const Forms = () => {
             <UserMessageContactFormContainer>
                 <UserMessageContactForm>
                     <UserMessageContactFormLabel>Your name</UserMessageContactFormLabel>
-                    <UserMessageContactFormInput placeholder='Your name' required onChange={(e) => setName(e.target.value)} />
+                    <UserMessageContactFormInput placeholder='Your name' required onChange={(e) => console.log(e.target.value)} />
                     <UserMessageContactFormLabel>Your surname</UserMessageContactFormLabel>
-                    <UserMessageContactFormInput placeholder='Your surname' required onChange={(e) => setSurname(e.target.value)} />
+                    <UserMessageContactFormInput placeholder='Your surname' required onChange={(e) => console.log(e.target.value)} />
                     <UserMessageContactFormLabel>Your mail</UserMessageContactFormLabel>
-                    <UserMessageContactFormInput placeholder='Your mail' type="mail" required onChange={(e) => setMail(e.target.value)} />
+                    <UserMessageContactFormInput placeholder='Your mail' type="mail" required onChange={(e) => console.log(e.target.value)} />
                     <UserMessageContactFormLabel>Your phone (optional)</UserMessageContactFormLabel>
-                    <UserMessageContactFormInput placeholder='123456789' type="number" onChange={(e) => setTel(e.target.value)} />
+                    <UserMessageContactFormInput placeholder='123456789' type="number" onChange={(e) => console.log(e.target.value)} />
                     <UserMessageContactFormLabel>Message</UserMessageContactFormLabel>
-                    <UserMessageContactFormInput type="text" placeholder='Write your message here' required onChange={(e) => setMsg(e.target.value)} />
+                    <UserMessageContactFormInput type="text" placeholder='Write your message here' required onChange={(e) => console.log(e.target.value)} />
                     <div>
                         <SharedCTAButton onClick={handleSubmit}>Send message</SharedCTAButton>
                     </div>

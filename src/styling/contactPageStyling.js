@@ -15,7 +15,10 @@ height: 400px`;
 export const BrandInformationGeneralContainer = styled.div`
 display: flex;
 flex-direction: row;
-padding: 30px 50px;`;
+padding: 30px 50px;
+@media (max-width: 768px) {
+    flex-direction: row;
+  }`;
 
 export const BrandContactDetailList = styled.div`
 flex: 1;`;

@@ -1,4 +1,3 @@
-import styledComponents from "styled-components";
 import styled from "styled-components";
 
 export const HomeProductCategoriesGeneralContainer = styled.div`

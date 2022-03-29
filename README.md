@@ -22,6 +22,7 @@ You will also see any lint errors in the console.
 
 ## WIP
 - Search Product ✅, Sort ✅ & Filter Options
+- ESLint ✅
 - Send Email after purchase
 - Discount coupons
 - Product Page
@@ -50,6 +51,7 @@ Subpage for products added to cart by the user.
 - React Router - navigating between subpages - see more - [Link](https://reactrouter.com)
 - Styled Components - CSS styling inside each component - see more - [Link](https://styled-components.com)
 - MUI for React - Icons and other UI elements - see more - [Link](https://mui.com)
+- ESLint - Find and Fix Problems - see more - [Link](https://eslint.org)
 
 ## Resources
 
