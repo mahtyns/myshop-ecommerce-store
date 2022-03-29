@@ -1,8 +1,10 @@
-import { useState } from "react";
+import  React  from "react";
 import { deliveryOptions } from '../data';
 import { SharedParagraph } from '../styling/sharedStyling';
 import { SummaryTotalContainer, PaySummary, TotalPriceSummary, DeliveryOptionsContainer, SummaryBuyButton, TotalSummaryInfo, DeliveryOptionsSelect } from '../styling/userCartStyling';
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 
 const ShopSummary = ({ finalPriceCount, chooseDeliveryOption }) => {
 
@@ -17,12 +19,18 @@ const ShopSummary = ({ finalPriceCount, chooseDeliveryOption }) => {
                 <SharedParagraph>Choose one delivery option from below:</SharedParagraph>
                 <DeliveryOptionsSelect onChange={chooseDeliveryOption}>
                     {deliveryOptions.map(option =>
-                        <option value={option.id} > {option.title}, {option.price} €</option>
+                        <option key={option.id} value={option.id} > {option.title}, {option.price} €</option>
                     )}
                 </DeliveryOptionsSelect>
             </DeliveryOptionsContainer>
         </SummaryTotalContainer >
     )
 }
+
+ShopSummary.propTypes = {
+    finalPriceCount: PropTypes.number,
+    chooseDeliveryOption: PropTypes.func
+}
+
 
 export default ShopSummary

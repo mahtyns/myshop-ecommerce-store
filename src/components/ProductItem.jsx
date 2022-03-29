@@ -1,6 +1,8 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { ProductItemContainer, ProductItemImage, ProductInfo, ProductName, ProductPrice, ProductDescr, AddCartButton, ProductStock } from '../styling/productShopStyling';
 
-const Product = ({ product, availableStock, ...props }) => {
+const Product = ({ product, availableStock, addItemToCart }) => {
 
     const ButtonContainer = <AddCartButton onClick={() => { props.addItemToCart(product) }}>Add to cart</AddCartButton>
 
@@ -21,6 +23,12 @@ const Product = ({ product, availableStock, ...props }) => {
             {product.stock ? ButtonContainer : null}
         </ProductItemContainer>
     )
+}
+
+Product.propTypes = {
+    product: PropTypes.object,
+    availableStock: PropTypes.number,
+    addItemToCart: PropTypes.func
 }
 
 export default Product;

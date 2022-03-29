@@ -3,6 +3,8 @@ import ProductsCart from '../components/ProductsCart';
 import ShopSummary from '../components/ShopSummary';
 import { SharedTitle } from '../styling/sharedStyling';
 import { CartContainer, CartWrapper, CartProductContainer, CartSummaryContainer } from '../styling/userCartStyling';
+import PropTypes from 'prop-types';
+
 
 const Cart = ({ itemsAddedToCartList, finalPriceCount, deleteItemCart, addOneProductCart, removeOneProductCart, chooseDeliveryOption }) => {
     return (
@@ -21,5 +23,15 @@ const Cart = ({ itemsAddedToCartList, finalPriceCount, deleteItemCart, addOnePro
         </>
     )
 }
+
+Cart.propTypes = {
+    finalPriceCount: PropTypes.number,
+    chooseDeliveryOption: PropTypes.func,
+    itemsAddedToCartList: PropTypes.array,
+    deleteItemCart: PropTypes.func, 
+    addOneProductCart: PropTypes.func, 
+    removeOneProductCart: PropTypes.func
+}
+
 
 export default Cart
