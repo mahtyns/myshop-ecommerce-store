@@ -4,7 +4,7 @@ import { ProductItemContainer, ProductItemImage, ProductInfo, ProductName, Produ
 
 const Product = ({ product, availableStock, addItemToCart }) => {
 
-    const ButtonContainer = <AddCartButton onClick={() => { props.addItemToCart(product) }}>Add to cart</AddCartButton>
+    const ButtonContainer = <AddCartButton onClick={() => { addItemToCart(product) }}>Add to cart</AddCartButton>
 
     return (
         <ProductItemContainer data-id={product.id} data-category={product.category}>
