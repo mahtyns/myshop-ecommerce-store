@@ -8,8 +8,8 @@ app.use(express.json())
 
 app.get("/products", async(req,res)=> {
     try {
-       const allProducts = await pool.query("SELECT * FROM products_table");
-       res.json(allProducts.rows)
+       const allProducts = await pool.query("SELECT * FROM products_table;");
+       res.json(allProducts.rows);
               
     } catch (error) {
         console.error(error.message)

@@ -8,7 +8,22 @@ const ProductsCatalogTest = () => {
 
   const [productCatalogList, setProductCatalogList] = useState([]);
 
+  const getProductsFromDB = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/products", {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+        const responseToJsonData = await response.json();
 
+        setProductCatalogList(responseToJsonData);
+        
+      } catch (error) {
+        console.error(error.message);
+      }
+  }
+
+  console.log(productCatalogList)
 
   return (
     <>
