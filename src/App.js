@@ -11,6 +11,7 @@ import { Routes, Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
 import PurchaseSummary from "./pages/PurchaseSummary";
 import { products } from '../src/data';
+import ProductsCatalogTest from "./pages/ProductsCatalogTest";
 
 
 const App = () => {
@@ -109,6 +110,7 @@ const App = () => {
           itemsAddedToCartList={itemsAddedToCartList}
           finalPriceCount={finalPriceCount}
           deliveryOptionId={deliveryOptionId} />} />
+          <Route path="/catalog" element={<ProductsCatalogTest />} />
         </Routes>
       </Router>
       <Footer />

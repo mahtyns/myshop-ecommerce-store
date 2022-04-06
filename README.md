@@ -23,6 +23,7 @@ You will also see any lint errors in the console.
 ## WIP
 - Search Product ✅, Sort ✅ & Filter Options
 - ESLint ✅
+- Building server side - Express, PostgreSQL, Node ▶️ 
 - Send Email after purchase
 - Discount coupons
 - Product Page
@@ -32,7 +33,7 @@ You will also see any lint errors in the console.
 
 ### Home Page
 
-Main page with Slider and products.
+Main page with Slider and product main categories, newsletter module.
 
 ### Products Page
 
