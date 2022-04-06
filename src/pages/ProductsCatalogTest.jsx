@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types';
 import { SharedParagraph, SharedTitle } from '../styling/sharedStyling';
 import { ProductShopContainer } from '../styling/productShopStyling';
@@ -21,16 +21,18 @@ const ProductsCatalogTest = () => {
       } catch (error) {
         console.error(error.message);
       }
-  }
+  };
 
-  console.log(productCatalogList)
+  useEffect(() => {
+    getProductsFromDB();
+  }, [])
 
   return (
     <>
     <SharedTitle>Products Catalog</SharedTitle>
     <SharedParagraph>This page is built to test the connection to the server and shop database.</SharedParagraph>
     <ProductShopContainer>
-      <ProductCatalogElements></ProductCatalogElements>
+        <ProductCatalogElements productCatalogList={productCatalogList}></ProductCatalogElements>
     </ProductShopContainer>
     </>
   )
