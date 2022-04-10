@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ProductItemContainer, ProductItemImage, ProductInfo, ProductName, ProductPrice, ProductDescr, AddCartButton, ProductStock } from '../styling/productShopStyling';
 
-const Product = ({ product, availableStock, addItemToCart }) => {
+const Product = ({ product, addItemToCart }) => {
 
     const ButtonContainer = <AddCartButton onClick={() => { addItemToCart(product) }}>Add to cart</AddCartButton>
 

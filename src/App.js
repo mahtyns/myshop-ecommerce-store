@@ -15,27 +15,68 @@ import ProductsCatalogTest from "./pages/ProductsCatalogTest";
 
 
 const App = () => {
+
+  const [productCatalogList, setProductCatalogList] = useState([]);
+
+  const getProductsFromDB = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/products", {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+        const responseToJsonData = await response.json();
+
+        setProductCatalogList(responseToJsonData);
+        
+      } catch (error) {
+        console.error(error.message);
+      }
+  };
+
+  useEffect(() => {
+    getProductsFromDB();
+  }, [])
+
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
   const [itemsCartNumber, setItemsCartNumber] = useState(0);
 
+  // Before adding serverside
+  // const addItemToCart = (addedProduct) => {
+  //   let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
+  //   let newProductInCart = {name: addedProduct.name, id: addedProduct.id, price: addedProduct.price, amount: 1, stock: addedProduct.stock};
+  //   if (!checkIfRepeatedInCart(addedProduct.id)) {
+  //     setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
+  //     setFinalPriceCount(finalPriceCount + addedProduct.price );
+  //     setItemsCartNumber(itemsCartNumber + 1);
+  //     addedProduct.stock -= 1;
+  //     } else {
+  //     itemsAddedToCartList[addedMultipleIndex].amount += 1;
+  //     setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleIndex].price );
+  //     setItemsCartNumber(itemsCartNumber + 1);
+  //     addedProduct.stock -= 1;
+  //     }
+  //     console.log(itemsCartNumber)
+  //   }
 
-  const addItemToCart = (addedProduct) => {
-    let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
-    let newProductInCart = {name: addedProduct.name, id: addedProduct.id, price: addedProduct.price, amount: 1, stock: addedProduct.stock};
-    if (!checkIfRepeatedInCart(addedProduct.id)) {
-      setItemsAddedToCartList([...itemsAddedToCartList, newProductInCart]);
-      setFinalPriceCount(finalPriceCount + addedProduct.price );
-      setItemsCartNumber(itemsCartNumber + 1);
-      addedProduct.stock -= 1;
-      } else {
-      itemsAddedToCartList[addedMultipleIndex].amount += 1;
-      setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleIndex].price );
-      setItemsCartNumber(itemsCartNumber + 1);
-      addedProduct.stock -= 1;
-      }
-      console.log(itemsCartNumber)
+    const addItemToCart = (addedProduct) => {
+      let addedMultipleProductIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.product_id);
+      let newProductAddedToCart = {name: addedProduct.product_name, id: addedProduct.product_id, price: addedProduct.product_price, amount: 1 }
+       if (!checkIfRepeatedInCart(addedProduct.product_id)) {
+            setItemsAddedToCartList([...itemsAddedToCartList, newProductAddedToCart]);
+            setFinalPriceCount(finalPriceCount + addedProduct.product_price);
+            setItemsCartNumber(itemsCartNumber + 1);
+          } else {
+            itemsAddedToCartList[addedMultipleProductIndex].amount += 1;
+            setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleProductIndex].price );
+            setItemsCartNumber(itemsCartNumber + 1);
+          }
+
+        console.log(addedProduct)
+        console.log(newProductAddedToCart)
+        console.log(addedMultipleProductIndex)
     }
+
 
     const checkIfRepeatedInCart = (index) => {
       let repeatedItemInCart = itemsAddedToCartList.find((product)=> product.id === index);
@@ -110,7 +151,7 @@ const App = () => {
           itemsAddedToCartList={itemsAddedToCartList}
           finalPriceCount={finalPriceCount}
           deliveryOptionId={deliveryOptionId} />} />
-          <Route path="/catalog" element={<ProductsCatalogTest />} />
+          <Route path="/catalog" element={<ProductsCatalogTest productCatalogList={productCatalogList} addItemToCart={addItemToCart}/>} />
         </Routes>
       </Router>
       <Footer />
