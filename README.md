@@ -21,6 +21,7 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## WIP
+- DataBase in PostgreSQL - Product Catalog ✅, user cart ▶️, user profile
 - Search Product ✅, Sort ✅ & Filter Options
 - Send Email after purchase
 - Discount coupons
