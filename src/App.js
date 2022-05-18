@@ -17,6 +17,9 @@ import ProductsCatalogTest from "./pages/ProductsCatalogTest";
 const App = () => {
 
   const [productCatalogList, setProductCatalogList] = useState([]);
+  const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
+  const [finalPriceCount, setFinalPriceCount] = useState(0);
+  const [itemsCartNumber, setItemsCartNumber] = useState(0);
 
   const getProductsFromDB = async () => {
       try {
@@ -37,11 +40,26 @@ const App = () => {
     getProductsFromDB();
   }, [])
 
-  const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
-  const [finalPriceCount, setFinalPriceCount] = useState(0);
-  const [itemsCartNumber, setItemsCartNumber] = useState(0);
+  const getProductsInCart = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/cart-products", {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+        const responseToJsonData = await response.json();
 
-  // Before adding serverside
+        setItemsAddedToCartList(responseToJsonData)
+        
+      } catch (error) {
+        console.error(error.message);
+      }
+  };
+
+  useEffect(() => {
+    getProductsInCart();
+  }, [])
+
+     // Before adding serverside
   // const addItemToCart = (addedProduct) => {
   //   let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
   //   let newProductInCart = {name: addedProduct.name, id: addedProduct.id, price: addedProduct.price, amount: 1, stock: addedProduct.stock};
@@ -59,22 +77,37 @@ const App = () => {
   //     console.log(itemsCartNumber)
   //   }
 
-    const addItemToCart = (addedProduct) => {
-      let addedMultipleProductIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.product_id);
-      let newProductAddedToCart = {name: addedProduct.product_name, id: addedProduct.product_id, price: addedProduct.product_price, amount: 1 }
-       if (!checkIfRepeatedInCart(addedProduct.product_id)) {
-            setItemsAddedToCartList([...itemsAddedToCartList, newProductAddedToCart]);
-            setFinalPriceCount(finalPriceCount + addedProduct.product_price);
-            setItemsCartNumber(itemsCartNumber + 1);
-          } else {
-            itemsAddedToCartList[addedMultipleProductIndex].amount += 1;
-            setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleProductIndex].price );
-            setItemsCartNumber(itemsCartNumber + 1);
-          }
+    const addItemToCart = async (addedProduct) => {
 
+      try {
+        let product_id = addedProduct.product_id;
+        let product_name = addedProduct.product_name;
+        let product_price = addedProduct.product_price
+        // const body = { description };
+        const response = await fetch("http://localhost:5000/cart-products", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+
+      } catch (error) {
+        console.error(error.message);
+      }
+            // let addedMultipleProductIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.product_id);
+      // let newProductAddedToCart = {name: addedProduct.product_name, id: addedProduct.product_id, price: addedProduct.product_price, amount: 1 }
+      //  if (!checkIfRepeatedInCart(addedProduct.product_id)) {
+      //       setItemsAddedToCartList([...itemsAddedToCartList, newProductAddedToCart]);
+      //       setFinalPriceCount(finalPriceCount + addedProduct.product_price);
+      //       setItemsCartNumber(itemsCartNumber + 1);
+      //     } else {
+      //       itemsAddedToCartList[addedMultipleProductIndex].amount += 1;
+      //       setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleProductIndex].price );
+      //       setItemsCartNumber(itemsCartNumber + 1);
+      //     }
+      
         console.log(addedProduct)
-        console.log(newProductAddedToCart)
-        console.log(addedMultipleProductIndex)
+        console.log(itemsAddedToCartList)
+
     }
 
 

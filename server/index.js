@@ -6,6 +6,29 @@ const pool = require("./db");
 app.use(cors())
 app.use(express.json())
 
+app.get("/cart-products", async(req,res)=> {
+    try {
+       const allProducts = await pool.query("SELECT * FROM user_product");
+       res.json(allProducts.rows);
+              
+    } catch (error) {
+        console.error(error.message)
+    }
+})
+
+
+app.post("/cart-products", async (req, res) => {
+    try {
+        const { description } = req.body;
+        const newProduct = await pool.query("INSERT INTO user_product (product_id, product_name, product_price) SELECT product_id, product_name, product_price FROM products_table");
+        res.json(newProduct.rows[0])
+    } catch (error) {
+        console.error(error.message)
+    }
+})
+
+
+
 app.get("/products", async(req,res)=> {
     try {
        const allProducts = await pool.query("SELECT * FROM products_table;");

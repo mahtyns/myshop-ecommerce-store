@@ -26,3 +26,19 @@ INSERT INTO products_table (product_name, product_description, product_price, pr
 INSERT INTO products_table (product_name, product_description, product_price, product_cat, product_stock) VALUES('Avocado Face oil', 'Oil face skin care with avocado', 30, 'Oil', 6);
 
 INSERT INTO products_table (product_name, product_description, product_price, product_cat, product_stock) VALUES('YSL Black Opium', 'Yves Saint Laurent Black Opium eau de toilette', 49, 'Perfume', 2);
+
+CREATE TABLE user_product(
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR(50) NOT NULL,
+    product_description VARCHAR(150),
+    product_price INT NOT NULL,
+    product_cat VARCHAR(25),
+    product_stock INT
+    );
+
+ALTER TABLE user_product
+ADD product_amount INT;
+
+INSERT INTO user_product (product_name, product_description, product_price, product_cat, product_stock, product_amount) VALUES('Test Item', 'Test Item to do the tests', 25, 'Test-Cat', 3, 1);
+
+DELETE FROM user_product WHERE product_id = 2;
