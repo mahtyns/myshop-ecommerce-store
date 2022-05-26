@@ -39,6 +39,6 @@ CREATE TABLE user_product(
 ALTER TABLE user_product
 ADD product_amount INT;
 
-INSERT INTO user_product (product_name, product_description, product_price, product_cat, product_stock, product_amount) VALUES('Test Item', 'Test Item to do the tests', 25, 'Test-Cat', 3, 1);
+INSERT INTO user_product (product_name, product_description, product_price, product_cat, product_stock) VALUES('Test Item', 'Test Item to do the tests', 25, 'Test-Cat', 3, 1);
 
 DELETE FROM user_product WHERE product_id = 2;

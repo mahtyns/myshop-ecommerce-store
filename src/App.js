@@ -28,9 +28,8 @@ const App = () => {
           headers: { "Content-Type": "application/json" },
         });
         const responseToJsonData = await response.json();
-
         setProductCatalogList(responseToJsonData);
-        
+
       } catch (error) {
         console.error(error.message);
       }
@@ -49,7 +48,6 @@ const App = () => {
         const responseToJsonData = await response.json();
 
         setItemsAddedToCartList(responseToJsonData)
-        
       } catch (error) {
         console.error(error.message);
       }
@@ -77,23 +75,44 @@ const App = () => {
   //     console.log(itemsCartNumber)
   //   }
 
-    const addItemToCart = async (addedProduct) => {
-
+    const getItemFromCatalog = async ({product}) => {
       try {
-        let product_id = addedProduct.product_id;
-        let product_name = addedProduct.product_name;
-        let product_price = addedProduct.product_price
-        // const body = { description };
-        const response = await fetch("http://localhost:5000/cart-products", {
-          method: "POST",
+        const response = await fetch(`http://localhost:5000/products/${product.product_id}`, {
+          method: "GET",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body)
         });
-
+        const responseToJsonData = await response.json();
+        console.log(getItemFromCatalog)
       } catch (error) {
         console.error(error.message);
       }
-            // let addedMultipleProductIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.product_id);
+    }
+
+    const addItemToCart = async (addedProduct) => {
+
+        console.log(JSON.stringify(addedProduct))
+
+      try {
+        const {body} =  addedProduct ;
+        const response = await fetch("http://localhost:5000/cart-products", {
+          method: "POST",
+          headers: { 
+          'Accept': 'application/json',
+          "Content-Type": "application/json" },
+        });
+
+
+        setItemsAddedToCartList([...itemsAddedToCartList, response])
+      } catch (error) {
+        console.error(error.message);
+      }
+           
+      //   console.log(addedProduct)
+      //   console.log(itemsAddedToCartList)
+
+    }
+
+           // let addedMultipleProductIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.product_id);
       // let newProductAddedToCart = {name: addedProduct.product_name, id: addedProduct.product_id, price: addedProduct.product_price, amount: 1 }
       //  if (!checkIfRepeatedInCart(addedProduct.product_id)) {
       //       setItemsAddedToCartList([...itemsAddedToCartList, newProductAddedToCart]);
@@ -104,11 +123,6 @@ const App = () => {
       //       setFinalPriceCount(finalPriceCount + itemsAddedToCartList[addedMultipleProductIndex].price );
       //       setItemsCartNumber(itemsCartNumber + 1);
       //     }
-      
-        console.log(addedProduct)
-        console.log(itemsAddedToCartList)
-
-    }
 
 
     const checkIfRepeatedInCart = (index) => {
