@@ -1,5 +1,4 @@
 import CartItemSingleAdded from './CartItemSingleAdded';
-import SingleCartProductElement from './serversideComponents/SingleCartProductElement';
 import { SharedParagraph } from '../styling/sharedStyling';
 import { CartProductsSummaryContainer, CartProductsSummaryItems } from '../styling/userCartStyling';
 import React from 'react';
@@ -12,11 +11,11 @@ const ProductsCart = ({ itemsAddedToCartList, deleteItemCart, addOneProductCart,
     return (
         <CartProductsSummaryContainer>
             <CartProductsSummaryItems>
-                {itemsAddedToCartList.length ? <SingleCartProductElement
+                {itemsAddedToCartList.length ? <CartItemSingleAdded
                     itemsAddedToCartList={itemsAddedToCartList}
-                    // deleteItemCart={deleteItemCart}
-                    // addOneProductCart={addOneProductCart}
-                    // removeOneProductCart={removeOneProductCart}
+                    deleteItemCart={deleteItemCart}
+                    addOneProductCart={addOneProductCart}
+                    removeOneProductCart={removeOneProductCart}
                 /> : <SharedParagraph>Your cart is empty</SharedParagraph>}
             </CartProductsSummaryItems>
         </CartProductsSummaryContainer>
