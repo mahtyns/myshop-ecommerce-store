@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <Slider />
       <HomeProductCategories />
-      <NewsletterModule></NewsletterModule>
+      <NewsletterModule/>
     </>
   );
 };

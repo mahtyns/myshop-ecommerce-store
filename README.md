@@ -21,13 +21,15 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## WIP
-- Search Product ✅, Sort ✅ & Filter Options
-- ESLint ✅
-- Send Email after purchase
-- Discount coupons
+- Filter Options
 - Product Page
+- Discount coupons
 - Mobile Version
+- Send Email after purchase
 
+## DONE
+ - Search Product ✅, Sort ✅
+ - ESLint ✅
 ## Structure
 
 ### Home Page
