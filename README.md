@@ -26,10 +26,12 @@ You will also see any lint errors in the console.
 - Discount coupons
 - Mobile Version
 - Send Email after purchase
+- Fix bugs (Popular product repetition)
 
 ## DONE
  - Search Product ✅, Sort ✅
  - ESLint ✅
+ - Home page ✅
 ## Structure
 
 ### Home Page

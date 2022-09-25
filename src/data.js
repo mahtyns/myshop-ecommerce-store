@@ -107,6 +107,42 @@ export const products = [
     price: 79,
     text: "For Dry and Brittle Hair",
   },
+  {
+    id: 12,
+    name: "Varmi Clay Mask",
+    category: "Mask",
+    img: "https://images.unsplash.com/photo-1663483921815-1b4e1f19be98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=724&q=80",
+    stock: 4,
+    price: 12,
+    text: "Mint and Lemon calming effect & refresh",
+  },
+  {
+    id: 13,
+    name: "Trew BB Cream",
+    category: "Cream",
+    img: "https://images.unsplash.com/photo-1661346380565-040f52a7a3d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    stock: 12,
+    price: 9,
+    text: "For all skin types",
+  },
+  {
+    id: 14,
+    name: "Crystalfarm Bio Cream",
+    category: "Cream",
+    img: "https://images.unsplash.com/photo-1654967109843-bc17c621adb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1919&q=80",
+    stock: 3,
+    price: 49,
+    text: "For Dry and delicate skin",
+  },
+  {
+    id: 15,
+    name: "GSC Ultrahydrate Serum",
+    category: "Serum",
+    img: "https://images.unsplash.com/photo-1620756236308-65c3ef5d25f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
+    stock: 5,
+    price: 28,
+    text: "With hyaluronic acid and essential amino acids",
+  },
 ];
 
 //Slider Main Pictures
