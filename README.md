@@ -22,12 +22,12 @@ You will also see any lint errors in the console.
 
 ## WIP
 
-- Filter Options
-=======
-- DataBase in PostgreSQL - Product Catalog ✅, user cart ▶️, user profile
-- Search Product ✅, Sort ✅ & Filter Options
-- Send Email after purchase
+- Local Storage
+- Filter Options & Categories
+- Single Product Page
+- Mobile
 - Discount coupons
+- Send Email after purchase
 
 
 
