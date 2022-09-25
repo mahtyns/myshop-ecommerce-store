@@ -21,12 +21,15 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## WIP
+
 - Filter Options
-- Product Page
-- Discount coupons
-- Mobile Version
+=======
+- DataBase in PostgreSQL - Product Catalog ✅, user cart ▶️, user profile
+- Search Product ✅, Sort ✅ & Filter Options
 - Send Email after purchase
-- Fix bugs (Popular product repetition)
+- Discount coupons
+
+
 
 ## DONE
  - Search Product ✅, Sort ✅
