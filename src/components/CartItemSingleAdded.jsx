@@ -1,18 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import { products } from '../data';
 import { SingleItemAddedContainer, AddedToCartImage, AddedToCartInformation, CartProductAuxiliaryText, CartProductName, CartProductPrice, AddRemoveCartProductButton } from '../styling/userCartStyling';
 import { Delete, Add, Remove } from '@material-ui/icons';
 
 const CartItemSingleAdded = ({ itemsAddedToCartList, deleteItemCart, addOneProductCart, removeOneProductCart }) => {
 
-
-
     return (
         <>{
 
             itemsAddedToCartList.map((addedCartItem) =>
 
-                <SingleItemAddedContainer>
+                <SingleItemAddedContainer key={addedCartItem.name}>
                     <AddedToCartImage src={products[addedCartItem.id].img} />
                     <AddedToCartInformation>
                         <CartProductAuxiliaryText>Product Id: {addedCartItem.id}</CartProductAuxiliaryText>
@@ -35,6 +34,13 @@ const CartItemSingleAdded = ({ itemsAddedToCartList, deleteItemCart, addOneProdu
         }</>
     )
 
+}
+
+CartItemSingleAdded.propTypes = {
+    itemsAddedToCartList: PropTypes.array,
+    deleteItemCart: PropTypes.func,
+    addOneProductCart: PropTypes.func,
+    removeOneProductCart: PropTypes.func
 }
 
 export default CartItemSingleAdded

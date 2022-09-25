@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AlertInformationNavbar from "./components/AlertInformationNavbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
@@ -81,7 +81,8 @@ const App = () => {
         itemsCartNumber={itemsCartNumber} />
         <AlertInformationNavbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home 
+          addItemToCart={addItemToCart}/>} />
           <Route
             path="/cart"
             element={

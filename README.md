@@ -21,13 +21,20 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## WIP
+
+- Filter Options
+=======
 - DataBase in PostgreSQL - Product Catalog ✅, user cart ▶️, user profile
 - Search Product ✅, Sort ✅ & Filter Options
 - Send Email after purchase
 - Discount coupons
-- Product Page
-- Mobile Version
 
+
+
+## DONE
+ - Search Product ✅, Sort ✅
+ - ESLint ✅
+ - Home page ✅
 ## Structure
 
 ### Home Page
@@ -51,6 +58,7 @@ Subpage for products added to cart by the user.
 - React Router - navigating between subpages - see more - [Link](https://reactrouter.com)
 - Styled Components - CSS styling inside each component - see more - [Link](https://styled-components.com)
 - MUI for React - Icons and other UI elements - see more - [Link](https://mui.com)
+- ESLint - Find and Fix Problems - see more - [Link](https://eslint.org)
 
 ## Resources
 
