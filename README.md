@@ -6,6 +6,8 @@ This project was developed as part of the DareIT Mentorship Programme.
 The main objective is to learn JS React Library by creating a Single Page Application for an Online Shop.
 The user can navigate between SPA's subpages, fill the contact form and add products to the cart.
 
+See the project live at [Github pages](https://mahtyns.github.io)
+
 - The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## How to start
@@ -24,14 +26,14 @@ You will also see any lint errors in the console.
 
 - Local Storage
 - Filter Options & Categories
-- Single Product Page
 - Mobile
 - Discount coupons
 - Send Email after purchase
-
+- Fix Bugs (Product repetition in popular, )
 
 
 ## DONE
+ - Single Product Page ✅
  - Search Product ✅, Sort ✅
  - ESLint ✅
  - Home page ✅

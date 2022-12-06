@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import { Routes, Route } from "react-router";
 import ProductsShop from "./pages/ProductsShop";
 import PurchaseSummary from "./pages/PurchaseSummary";
+import ProductSinglePage from './pages/ProductSinglePage'
 import { products } from '../src/data';
 
 
@@ -17,7 +18,7 @@ const App = () => {
   const [itemsAddedToCartList, setItemsAddedToCartList] = useState([]);
   const [finalPriceCount, setFinalPriceCount] = useState(0);
   const [itemsCartNumber, setItemsCartNumber] = useState(0);
-
+  const [deliveryOptionId, setDeliveryOptionId] = useState({});
 
   const addItemToCart = (addedProduct) => {
     let addedMultipleIndex = itemsAddedToCartList.findIndex(product => product.id === addedProduct.id);
@@ -67,7 +68,7 @@ const App = () => {
     products[addedProduct.id].stock += 1;
   }
 
-   const [deliveryOptionId, setDeliveryOptionId] = useState({});
+  
 
     const chooseDeliveryOption = (e) => {
         setDeliveryOptionId(e.target.value); 
@@ -105,6 +106,8 @@ const App = () => {
               />
             }
           />
+          <Route path="products/:productId" element={<ProductSinglePage 
+          addItemToCart={addItemToCart}/>} />
           <Route path="/about" element={<About />} />
           <Route path="/checkout" element={<PurchaseSummary 
           itemsAddedToCartList={itemsAddedToCartList}
