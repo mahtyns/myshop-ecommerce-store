@@ -11,7 +11,6 @@ const ProductSinglePage = ({ addItemToCart }) => {
   const { productId } = useParams();
   
   const productDisplayed = products.find( product => product.name === productId );
-  console.log(productDisplayed)
 
   return (
    <MainProductContainer>

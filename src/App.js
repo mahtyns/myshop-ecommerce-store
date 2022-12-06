@@ -12,6 +12,7 @@ import ProductsShop from "./pages/ProductsShop";
 import PurchaseSummary from "./pages/PurchaseSummary";
 import ProductSinglePage from './pages/ProductSinglePage'
 import { products } from '../src/data';
+ import { QueryClient, QueryClientProvider } from 'react-query'
 
 
 const App = () => {
@@ -68,14 +69,15 @@ const App = () => {
     products[addedProduct.id].stock += 1;
   }
 
-  
-
-    const chooseDeliveryOption = (e) => {
+  const chooseDeliveryOption = (e) => {
         setDeliveryOptionId(e.target.value); 
      }
 
+  const queryClient = new QueryClient()
+
   return (
-    <>
+    <QueryClientProvider client={queryClient}>    
+      <>
       <Router basename={process.env.PUBLIC_URL}>
         <Navbar itemsAddedToCartList={itemsAddedToCartList}
         finalPriceCount = {finalPriceCount}
@@ -117,6 +119,7 @@ const App = () => {
       </Router>
       <Footer />
     </>
+    </QueryClientProvider>
   );
 };
 

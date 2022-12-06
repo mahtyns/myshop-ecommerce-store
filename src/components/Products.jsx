@@ -1,10 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
 import ProductItem from './ProductItem';
 import { products } from '../data';
 import { ProductsContainer } from '../styling/productShopStyling';
 
+import { useQuery } from 'react-query'
+
+
 const Products = ({ addItemToCart, availableStock, searchTerm, sortingOptionList }) => {
+    
+    const { isLoading, error, data } = useQuery('cosmetics', () =>
+        fetch('http://makeup-api.herokuapp.com/api/v1/products').then(res =>
+            res.json()
+        )
+    )
+
+    if (isLoading) console.log('Loading')
+    if (error) console.log(error.message)
+
+    console.log(data)
 
     const productListUnsorted = products.slice();
 
@@ -48,6 +62,7 @@ const Products = ({ addItemToCart, availableStock, searchTerm, sortingOptionList
                 }).map((product, index) => (
                     <ProductItem key={index} product={product} index={index} addItemToCart={addItemToCart} availableStock={availableStock} />
                 ))}
+                
             </ProductsContainer>
         )
     }
@@ -57,7 +72,7 @@ Products.propTypes = {
     addItemToCart: PropTypes.func, 
     availableStock: PropTypes.number, 
     searchTerm: PropTypes.string, 
-    sortingOptionList: PropTypes.func
+    sortingOptionList: PropTypes.string
 }
 
 export default Products

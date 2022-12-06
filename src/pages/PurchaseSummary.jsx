@@ -36,7 +36,7 @@ const PurchaseSummary = ({ itemsAddedToCartList, finalPriceCount, deliveryOption
 PurchaseSummary.propTypes = {
     itemsAddedToCartList: PropTypes.array,
     finalPriceCount: PropTypes.number,
-    deliveryOptionId: PropTypes.number
+    deliveryOptionId: PropTypes.object
 }
 
 export default PurchaseSummary;
