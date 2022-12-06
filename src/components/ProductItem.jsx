@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ProductItemContainer, ProductItemImage, ProductInfo, ProductName, ProductPrice, ProductDescr, AddCartButton, ProductStock } from '../styling/productShopStyling';
+import { Link } from "react-router-dom";
 
 const Product = ({ product, availableStock, addItemToCart }) => {
 
@@ -8,7 +9,9 @@ const Product = ({ product, availableStock, addItemToCart }) => {
 
     return (
         <ProductItemContainer data-id={product.id} data-category={product.category}>
+            <Link to={product.name}>
             <ProductItemImage src={product.img} />
+            </Link>
             <ProductInfo>
                 <ProductName>
                     {product.name}
