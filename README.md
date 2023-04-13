@@ -6,7 +6,7 @@ This project was developed as part of the DareIT Mentorship Programme.
 The main objective is to learn JS React Library by creating a Single Page Application for an Online Shop.
 The user can navigate between SPA's subpages, fill the contact form and add products to the cart.
 
-See the project live at [Github pages](https://mahtyns.github.io)
+See the project live at [Link](https://myshop-ecommerce.netlify.app)
 
 - The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
