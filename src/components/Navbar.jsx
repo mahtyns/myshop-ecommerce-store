@@ -1,11 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types';
 import { Search, ShoppingCartSharp, PersonSharp } from '@material-ui/icons';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Badge } from '@material-ui/core';
 import { Link } from "react-router-dom";
-import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, UserInteractionsContainer, SearchInputWrapper, SearchInput, NavigationList, ListItem } from '../styling/navbarStyling';
+import { NavbarContainer, NavbarWrapper, NavbarLogo, NavigationLinksContainer, UserInteractionsContainer, SearchInputWrapper, SearchInput, NavigationList, ListItem, NavbarWrapperMobile, NavBarMenuMobile, ListItemMobile, NavigationListMobile } from '../styling/navbarStyling';
+import { SharedTitle } from '../styling/sharedStyling';
 
 const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
+
+    const [isMenuOpen, setMenuOpen] = useState(false)
+
     return (
         <NavbarContainer>
             <NavbarWrapper>
@@ -34,6 +39,20 @@ const Navbar = ({ finalPriceCount, itemsCartNumber }) => {
                     {finalPriceCount} €
                 </UserInteractionsContainer>
             </NavbarWrapper>
+            <NavbarWrapperMobile>
+                <NavbarLogo><Link to="/">CousMetics</Link></NavbarLogo>
+                <MenuIcon style={{ fontSize: "36px", cursor: 'pointer' }} onClick={() => setMenuOpen(!isMenuOpen)} />
+                {isMenuOpen && <NavBarMenuMobile >
+                    <SharedTitle>Menu</SharedTitle>
+                    <NavigationListMobile>
+                        <ListItemMobile><Link to="/" onClick={() => setMenuOpen(!isMenuOpen)}>Home</Link></ListItemMobile>
+                        <ListItemMobile><Link to="/about" onClick={() => setMenuOpen(!isMenuOpen)}>About</Link></ListItemMobile>
+                        <ListItemMobile><Link to="/products" onClick={() => setMenuOpen(!isMenuOpen)}>Products</Link></ListItemMobile>
+                        <ListItemMobile><Link to="/contact" onClick={() => setMenuOpen(!isMenuOpen)}>Contact</Link></ListItemMobile>
+                        <ListItemMobile onClick={() => setMenuOpen(!isMenuOpen)}>Close X</ListItemMobile>
+                    </NavigationListMobile>
+                </NavBarMenuMobile>}
+            </NavbarWrapperMobile>
         </NavbarContainer>
     )
 }

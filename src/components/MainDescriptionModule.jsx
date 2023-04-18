@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { MainDescriptionGeneralContainer, MainpageDescriptionImg, MainpageDescriptionText, MainpageDescriptionWrapper } from '../styling/mainpageDescriptionStyling'
-import { SharedCTAButton, SharedTitle } from '../styling/sharedStyling'
+import { SharedTitle } from '../styling/sharedStyling'
 
 const MainDescriptionModule = () => {
   return (
